@@ -958,7 +958,7 @@ function App() {
                 />
               </div>
               <div className="flex-1">
-                <p className="text-xs leading-relaxed" style={{color: '#1F2937'}}>
+                <p className={`leading-relaxed ${language === 'en' ? 'text-[0.6875rem]' : 'text-xs'}`} style={{color: '#6B7280'}}>
                   {t('facialAnalysis.foreheadDesc')}
                 </p>
               </div>
@@ -973,7 +973,7 @@ function App() {
                 />
               </div>
               <div className="flex-1">
-                <p className="text-xs leading-relaxed" style={{color: '#1F2937'}}>
+                <p className={`leading-relaxed ${language === 'en' ? 'text-[0.6875rem]' : 'text-xs'}`} style={{color: '#6B7280'}}>
                   {t('facialAnalysis.outerContourDesc')}
                 </p>
               </div>
@@ -988,7 +988,7 @@ function App() {
                 />
               </div>
               <div className="flex-1">
-                <p className="text-xs leading-relaxed" style={{color: '#1F2937'}}>
+                <p className={`leading-relaxed ${language === 'en' ? 'text-[0.6875rem]' : 'text-xs'}`} style={{color: '#6B7280'}}>
                   {t('facialAnalysis.innerContourDesc')}
                 </p>
               </div>
