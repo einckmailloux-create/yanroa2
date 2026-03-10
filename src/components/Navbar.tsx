@@ -3,10 +3,12 @@ import { useState } from 'react';
 import { LogOut, User as UserIcon, Menu, X } from 'lucide-react';
 import LanguageSelector from './LanguageSelector';
 import { useAuth } from '../contexts/AuthContext';
+import { useLanguage } from '../contexts/LanguageContext';
 
 function Navbar() {
   const navigate = useNavigate();
   const { user, profile, signOut } = useAuth();
+  const { t } = useLanguage();
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [showProjectsMenu, setShowProjectsMenu] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -36,14 +38,29 @@ function Navbar() {
           </button>
 
           <div className="hidden md:flex items-center gap-12">
-            <button onClick={() => navigate('/')} className="text-sm transition" style={{color: '#6B7280'}} onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'} onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}>首页</button>
+            <button
+              onClick={() => navigate('/')}
+              className="text-sm transition"
+              style={{color: '#6B7280'}}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}
+            >
+              {t('nav.home')}
+            </button>
 
             <div
               className="relative"
               onMouseEnter={() => setShowProjectsMenu(true)}
               onMouseLeave={() => setShowProjectsMenu(false)}
             >
-              <button className="text-sm transition" style={{color: '#6B7280'}} onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'} onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}>项目</button>
+              <button
+                className="text-sm transition"
+                style={{color: '#6B7280'}}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}
+              >
+                {t('nav.projects')}
+              </button>
 
               {showProjectsMenu && (
                 <>
@@ -70,7 +87,7 @@ function Navbar() {
                             e.currentTarget.style.transform = 'scale(1)';
                           }}
                         >
-                          <span className="text-lg font-light tracking-wider">面部轮廓</span>
+                          <span className="text-lg font-light tracking-wider">{t('nav.facialContour')}</span>
                         </button>
                         <button
                           onClick={() => {
@@ -88,7 +105,7 @@ function Navbar() {
                             e.currentTarget.style.transform = 'scale(1)';
                           }}
                         >
-                          <span className="text-lg font-light tracking-wider">身体塑形</span>
+                          <span className="text-lg font-light tracking-wider">{t('nav.bodySculpting')}</span>
                         </button>
                         <button
                           onClick={() => {
@@ -106,7 +123,7 @@ function Navbar() {
                             e.currentTarget.style.transform = 'scale(1)';
                           }}
                         >
-                          <span className="text-lg font-light tracking-wider">面部年轻化</span>
+                          <span className="text-lg font-light tracking-wider">{t('nav.facialRejuvenation')}</span>
                         </button>
                         <button
                           onClick={() => {
@@ -124,7 +141,7 @@ function Navbar() {
                             e.currentTarget.style.transform = 'scale(1)';
                           }}
                         >
-                          <span className="text-lg font-light tracking-wider">植发</span>
+                          <span className="text-lg font-light tracking-wider">{t('nav.hairTransplant')}</span>
                         </button>
                         {/* Temporarily hidden - Dental page */}
                         {/* <button
@@ -156,8 +173,24 @@ function Navbar() {
               )}
             </div>
 
-            <button onClick={() => navigate('/cases')} className="text-sm transition" style={{color: '#6B7280'}} onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'} onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}>案例</button>
-            <button onClick={() => navigate('/faq')} className="text-sm transition" style={{color: '#6B7280'}} onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'} onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}>FAQ</button>
+            <button
+              onClick={() => navigate('/cases')}
+              className="text-sm transition"
+              style={{color: '#6B7280'}}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}
+            >
+              {t('nav.cases')}
+            </button>
+            <button
+              onClick={() => navigate('/faq')}
+              className="text-sm transition"
+              style={{color: '#6B7280'}}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}
+            >
+              {t('nav.faq')}
+            </button>
           </div>
 
           <div className="hidden md:flex items-center gap-4">
@@ -195,7 +228,7 @@ function Navbar() {
                       onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                     >
                       <LogOut className="w-4 h-4" />
-                      退出登录
+                      {t('nav.logout')}
                     </button>
                   </div>
                 )}
@@ -206,7 +239,7 @@ function Navbar() {
                 className="text-sm transition px-4 py-2"
                 style={{color: '#6B7280'}}
               >
-                登录
+                {t('nav.login')}
               </button>
             )}
             <button
@@ -216,7 +249,7 @@ function Navbar() {
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#101D29'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#1C2B3A'}
             >
-              立即预约
+              {t('nav.bookNow')}
             </button>
           </div>
         </div>
@@ -246,7 +279,7 @@ function Navbar() {
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
             >
-              首页
+              {t('nav.home')}
             </button>
 
             <div className="border-b border-white border-opacity-10">
@@ -256,7 +289,7 @@ function Navbar() {
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
               >
-                项目
+                {t('nav.projects')}
               </button>
               {showMobileProjects && (
                 <div className="bg-black bg-opacity-20">
@@ -269,7 +302,7 @@ function Navbar() {
                     onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
                     onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                   >
-                    面部轮廓
+                    {t('nav.facialContour')}
                   </button>
                   <button
                     onClick={() => {
@@ -280,7 +313,7 @@ function Navbar() {
                     onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
                     onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                   >
-                    身体塑形
+                    {t('nav.bodySculpting')}
                   </button>
                   <button
                     onClick={() => {
@@ -291,7 +324,7 @@ function Navbar() {
                     onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
                     onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                   >
-                    面部年轻化
+                    {t('nav.facialRejuvenation')}
                   </button>
                   <button
                     onClick={() => {
@@ -302,7 +335,7 @@ function Navbar() {
                     onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
                     onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                   >
-                    植发
+                    {t('nav.hairTransplant')}
                   </button>
                   {/* Temporarily hidden - Dental page */}
                   {/* <button
@@ -329,7 +362,7 @@ function Navbar() {
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
             >
-              案例
+              {t('nav.cases')}
             </button>
 
             <button
@@ -341,7 +374,7 @@ function Navbar() {
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
             >
-              FAQ
+              {t('nav.faq')}
             </button>
           </div>
 
@@ -359,7 +392,7 @@ function Navbar() {
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.15)'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
             >
-              立即预约
+              {t('nav.bookNow')}
             </button>
 
             {user ? (
@@ -377,7 +410,7 @@ function Navbar() {
                   onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                 >
                   <LogOut className="w-4 h-4" />
-                  退出登录
+                  {t('nav.logout')}
                 </button>
               </div>
             ) : (
@@ -390,7 +423,7 @@ function Navbar() {
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.15)'}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
               >
-                登录
+                {t('nav.login')}
               </button>
             )}
           </div>
