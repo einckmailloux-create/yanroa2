@@ -143,6 +143,15 @@ const zhTranslations = {
     mapSubtitle: '让客户满意是我们的永恒的追求',
     readMore: '快来看看',
   },
+  whyYanora: {
+    title: '为什么选择YANORA',
+    feature1Title: '10W+全球客户',
+    feature1Desc: '为全球客户提供专业的医疗美容和整形外科服务',
+    feature2Title: '针对每张脸的个性化美学方案',
+    feature2Desc: '根据不同面部结构和人种背景量身定制美容和医疗美学解决方案',
+    feature3Title: '经验丰富的医疗团队',
+    feature3Desc: '我们技术娴熟的医生提供透明咨询、精准治疗计划和专业护理，陪伴您的每一步美学之旅',
+  },
   journey: {
     title: '今天开始你的蜕变之旅',
     step1: '点击回答问题',
@@ -565,6 +574,15 @@ const enTranslations = {
     mapTitle: 'Our Clients Around the World',
     mapSubtitle: 'Client satisfaction is our eternal pursuit',
     readMore: 'Read More',
+  },
+  whyYanora: {
+    title: 'Why Choose YANORA',
+    feature1Title: '10W+ Clients Worldwide',
+    feature1Desc: 'Providing professional medical aesthetic and cosmetic surgery services globally',
+    feature2Title: 'Personalized Aesthetic Plans for Every Face',
+    feature2Desc: 'Tailored cosmetic and medical aesthetic solutions designed for different facial structures and ethnic backgrounds',
+    feature3Title: 'Experienced Medical Team',
+    feature3Desc: 'Our skilled doctors provide transparent consultation, precise treatment planning, and professional care throughout every step of your aesthetic journey',
   },
   journey: {
     title: 'Start Your Transformation Journey Today',

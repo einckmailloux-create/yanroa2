@@ -1,24 +1,27 @@
 import AnimatedSection from './AnimatedSection';
+import { useLanguage } from '../contexts/LanguageContext';
 
 function WhyYanoraSection() {
+  const { t } = useLanguage();
+
   const features = [
     {
       id: 1,
       image: '/7f89a2d3257b24a6954e53e9ca86f557_copy.jpg',
-      title: '10W+Clients Worldwide',
-      description: 'Providing professional medical aesthetic and cosmetic surgery services globally.'
+      title: t('whyYanora.feature1Title'),
+      description: t('whyYanora.feature1Desc')
     },
     {
       id: 2,
       image: '/babdd4249dea4d87530ef110e24bd12b_copy.jpg',
-      title: 'Personalized Aesthetic Plans for Every Face',
-      description: 'Tailored cosmetic and medical aesthetic solutions designed for different facial structures and ethnic backgrounds.'
+      title: t('whyYanora.feature2Title'),
+      description: t('whyYanora.feature2Desc')
     },
     {
       id: 3,
       image: '/e4f3412e99df422ba49fc3eb3df46c36.jpg',
-      title: 'Experienced Medical Team',
-      description: 'Our skilled doctors provide transparent consultation, precise treatment planning, and professional care throughout every step of your aesthetic journey.'
+      title: t('whyYanora.feature3Title'),
+      description: t('whyYanora.feature3Desc')
     }
   ];
 
@@ -27,7 +30,7 @@ function WhyYanoraSection() {
       <div className="max-w-7xl mx-auto">
         <AnimatedSection animation="fade-up">
           <h2 className="text-2xl md:text-4xl font-light text-center mb-12 md:mb-16 tracking-wide" style={{color: '#1F1F1F'}}>
-            为什么选择YANORA
+            {t('whyYanora.title')}
           </h2>
         </AnimatedSection>
 
