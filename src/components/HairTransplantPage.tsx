@@ -5,9 +5,11 @@ import CTASection from './CTASection';
 import ServiceCasesSection from './ServiceCasesSection';
 import WhyYanoraSection from './WhyYanoraSection';
 import { useState } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 function HairTransplantPage() {
   const navigate = useNavigate();
+  const { t } = useLanguage();
   const [activeService, setActiveService] = useState<'fue' | 'hairline' | 'eyebrow' | 'beard'>('fue');
 
   return (
@@ -17,10 +19,10 @@ function HairTransplantPage() {
       <section className="py-16 md:py-20 px-6 md:px-12 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-3xl md:text-5xl font-light mb-6 leading-relaxed tracking-wide" style={{color: '#1F1F1F'}}>
-            植发
+            {t('hairTransplant.hero.title')}
           </h1>
           <p className="text-sm md:text-base font-light leading-relaxed mb-8 max-w-2xl mx-auto" style={{color: '#4B5563'}}>
-            科学重塑浓密秀发，重拾自信形象
+            {t('hairTransplant.hero.subtitle')}
           </p>
           <button
             onClick={() => navigate('/booking')}
@@ -30,7 +32,7 @@ function HairTransplantPage() {
               color: '#FFFFFF'
             }}
           >
-            现在开始探索
+            {t('hairTransplant.hero.cta')}
           </button>
 
           <div className="mt-12 flex justify-center">
@@ -50,99 +52,99 @@ function HairTransplantPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-light mb-6 tracking-wide" style={{color: '#1F1F1F'}}>
-              头发为什么会脱落？
+              {t('hairTransplant.education.whyTitle')}
             </h2>
             <p className="text-base md:text-lg max-w-3xl mx-auto leading-relaxed" style={{color: '#6B7280'}}>
-              头发生长和脱落是个周期性的动态过程。简单来说，毛囊这个"生产车间"遭到了破坏。
+              {t('hairTransplant.education.whyDesc')}
             </p>
           </div>
 
           <div className="bg-white p-8 md:p-12 mb-12 shadow-sm">
             <h3 className="text-2xl font-light mb-8 tracking-wide" style={{color: '#1F1F1F'}}>
-              毛囊生长周期
+              {t('hairTransplant.education.cycleTitle')}
             </h3>
             <p className="text-base mb-8 leading-relaxed" style={{color: '#6B7280'}}>
-              我们可以把毛囊想象成一个生产头发的工厂，它会经历三个主要阶段：
+              {t('hairTransplant.education.cycleDesc')}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="p-6" style={{backgroundColor: '#F9FAFB'}}>
                 <h4 className="text-lg font-normal mb-3" style={{color: '#1C2B3A'}}>
-                  生长期 (约2-7年)
+                  {t('hairTransplant.education.phases.growth.title')}
                 </h4>
                 <p className="text-sm leading-relaxed" style={{color: '#6B7280'}}>
-                  头发积极生长，约85%-90%的头发处于这个阶段。
+                  {t('hairTransplant.education.phases.growth.desc')}
                 </p>
               </div>
               <div className="p-6" style={{backgroundColor: '#F9FAFB'}}>
                 <h4 className="text-lg font-normal mb-3" style={{color: '#1C2B3A'}}>
-                  退行期 (约2-3周)
+                  {t('hairTransplant.education.phases.regression.title')}
                 </h4>
                 <p className="text-sm leading-relaxed" style={{color: '#6B7280'}}>
-                  工厂"停工"，头发停止生长。
+                  {t('hairTransplant.education.phases.regression.desc')}
                 </p>
               </div>
               <div className="p-6" style={{backgroundColor: '#F9FAFB'}}>
                 <h4 className="text-lg font-normal mb-3" style={{color: '#1C2B3A'}}>
-                  休止期 (约3-4个月)
+                  {t('hairTransplant.education.phases.resting.title')}
                 </h4>
                 <p className="text-sm leading-relaxed" style={{color: '#6B7280'}}>
-                  工厂"放假"，旧头发会自然脱落，为新生头发腾出空间。
+                  {t('hairTransplant.education.phases.resting.desc')}
                 </p>
               </div>
             </div>
             <p className="text-sm mt-8 p-4" style={{backgroundColor: '#FEF3C7', color: '#92400E'}}>
-              正常情况下，每天脱落50-100根头发属于正常生理现象。
+              {t('hairTransplant.education.normalLoss')}
             </p>
           </div>
 
           <div className="bg-white p-8 md:p-12 shadow-sm">
             <h3 className="text-2xl font-light mb-8 tracking-wide" style={{color: '#1F1F1F'}}>
-              病理性脱发的主要原因
+              {t('hairTransplant.education.causesTitle')}
             </h3>
             <div className="space-y-6">
               <div className="pb-6 border-b" style={{borderColor: '#E5E7EB'}}>
                 <h4 className="text-lg font-normal mb-3 flex items-center gap-2" style={{color: '#1F1F1F'}}>
                   <span className="w-2 h-2 rounded-full" style={{backgroundColor: '#1C2B3A'}} />
-                  雄激素性脱发
+                  {t('hairTransplant.education.causes.androgenic.title')}
                 </h4>
                 <p className="text-sm leading-relaxed ml-4" style={{color: '#6B7280'}}>
-                  也称为脂溢性脱发，有遗传倾向。关键是一种叫二氢睾酮（DHT）的激素攻击毛囊，使生长期缩短，头发逐渐变细、变短，长不出头发。
+                  {t('hairTransplant.education.causes.androgenic.desc')}
                 </p>
               </div>
               <div className="pb-6 border-b" style={{borderColor: '#E5E7EB'}}>
                 <h4 className="text-lg font-normal mb-3 flex items-center gap-2" style={{color: '#1F1F1F'}}>
                   <span className="w-2 h-2 rounded-full" style={{backgroundColor: '#1C2B3A'}} />
-                  精神与情绪因素
+                  {t('hairTransplant.education.causes.stress.title')}
                 </h4>
                 <p className="text-sm leading-relaxed ml-4" style={{color: '#6B7280'}}>
-                  长期精神压力大、熬夜、焦虑，导致身体释放皮质醇等压力激素，扰乱毛囊周期，导致短时间内脱落增多。
+                  {t('hairTransplant.education.causes.stress.desc')}
                 </p>
               </div>
               <div className="pb-6 border-b" style={{borderColor: '#E5E7EB'}}>
                 <h4 className="text-lg font-normal mb-3 flex items-center gap-2" style={{color: '#1F1F1F'}}>
                   <span className="w-2 h-2 rounded-full" style={{backgroundColor: '#1C2B3A'}} />
-                  营养缺乏
+                  {t('hairTransplant.education.causes.nutrition.title')}
                 </h4>
                 <p className="text-sm leading-relaxed ml-4" style={{color: '#6B7280'}}>
-                  头发主要由角蛋白构成，需要足够的蛋白质、维生素和微量元素。过度节食或缺乏铁、锌、维生素B族等，都可能因"原料"不足导致脱发。
+                  {t('hairTransplant.education.causes.nutrition.desc')}
                 </p>
               </div>
               <div className="pb-6 border-b" style={{borderColor: '#E5E7EB'}}>
                 <h4 className="text-lg font-normal mb-3 flex items-center gap-2" style={{color: '#1F1F1F'}}>
                   <span className="w-2 h-2 rounded-full" style={{backgroundColor: '#1C2B3A'}} />
-                  产后脱发
+                  {t('hairTransplant.education.causes.postpartum.title')}
                 </h4>
                 <p className="text-sm leading-relaxed ml-4" style={{color: '#6B7280'}}>
-                  怀孕时雌激素水平高，头发会延长生长期。产后雌激素骤降，大量头发同时进入休止期，导致短期内集中脱落，这通常是暂时的。
+                  {t('hairTransplant.education.causes.postpartum.desc')}
                 </p>
               </div>
               <div>
                 <h4 className="text-lg font-normal mb-3 flex items-center gap-2" style={{color: '#1F1F1F'}}>
                   <span className="w-2 h-2 rounded-full" style={{backgroundColor: '#1C2B3A'}} />
-                  疾病与药物影响
+                  {t('hairTransplant.education.causes.medical.title')}
                 </h4>
                 <p className="text-sm leading-relaxed ml-4" style={{color: '#6B7280'}}>
-                  甲状腺功能异常、自身免疫疾病（如斑秃）等会干扰毛囊。化疗药物、部分降压药也可能引起脱发。
+                  {t('hairTransplant.education.causes.medical.desc')}
                 </p>
               </div>
             </div>
@@ -154,10 +156,10 @@ function HairTransplantPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-light mb-6 tracking-wide" style={{color: '#1F1F1F'}}>
-              治疗方案的三个层级
+              {t('hairTransplant.treatment.title')}
             </h2>
             <p className="text-base md:text-lg max-w-3xl mx-auto leading-relaxed" style={{color: '#6B7280'}}>
-              根据脱发类型和严重程度，选择最适合的治疗方式
+              {t('hairTransplant.treatment.subtitle')}
             </p>
           </div>
 
@@ -169,21 +171,21 @@ function HairTransplantPage() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-light mb-2 tracking-wide" style={{color: '#1F1F1F'}}>
-                    日常调理与生活方式干预
+                    {t('hairTransplant.treatment.tier1.title')}
                   </h3>
                   <p className="text-sm mb-4" style={{color: '#6B7280'}}>
-                    适用于休止期脱发、营养性脱发的辅助改善，以及所有脱发类型的预防。
+                    {t('hairTransplant.treatment.tier1.suitable')}
                   </p>
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ml-16">
                 <div className="p-4" style={{backgroundColor: '#F9FAFB'}}>
-                  <h4 className="text-base font-normal mb-2" style={{color: '#1F1F1F'}}>营养补充</h4>
-                  <p className="text-sm" style={{color: '#6B7280'}}>均衡饮食，补充蛋白质、维生素和微量元素</p>
+                  <h4 className="text-base font-normal mb-2" style={{color: '#1F1F1F'}}>{t('hairTransplant.treatment.tier1.methods[0].title')}</h4>
+                  <p className="text-sm" style={{color: '#6B7280'}}>{t('hairTransplant.treatment.tier1.methods[0].desc')}</p>
                 </div>
                 <div className="p-4" style={{backgroundColor: '#F9FAFB'}}>
-                  <h4 className="text-base font-normal mb-2" style={{color: '#1F1F1F'}}>压力管理</h4>
-                  <p className="text-sm" style={{color: '#6B7280'}}>保证充足睡眠，减少焦虑和精神压力</p>
+                  <h4 className="text-base font-normal mb-2" style={{color: '#1F1F1F'}}>{t('hairTransplant.treatment.tier1.methods[1].title')}</h4>
+                  <p className="text-sm" style={{color: '#6B7280'}}>{t('hairTransplant.treatment.tier1.methods[1].desc')}</p>
                 </div>
               </div>
             </div>
@@ -195,21 +197,21 @@ function HairTransplantPage() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-light mb-2 tracking-wide" style={{color: '#1F1F1F'}}>
-                    药物治疗
+                    {t('hairTransplant.treatment.tier2.title')}
                   </h3>
                   <p className="text-sm mb-4" style={{color: '#6B7280'}}>
-                    适用于雄激素性脱发、斑秃等，是目前最主要的保守治疗手段。
+                    {t('hairTransplant.treatment.tier2.suitable')}
                   </p>
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ml-16">
                 <div className="p-4" style={{backgroundColor: '#F9FAFB'}}>
-                  <h4 className="text-base font-normal mb-2" style={{color: '#1F1F1F'}}>外用药物</h4>
-                  <p className="text-sm" style={{color: '#6B7280'}}>局部刺激毛囊生长，改善头皮血液循环</p>
+                  <h4 className="text-base font-normal mb-2" style={{color: '#1F1F1F'}}>{t('hairTransplant.treatment.tier2.methods[0].title')}</h4>
+                  <p className="text-sm" style={{color: '#6B7280'}}>{t('hairTransplant.treatment.tier2.methods[0].desc')}</p>
                 </div>
                 <div className="p-4" style={{backgroundColor: '#F9FAFB'}}>
-                  <h4 className="text-base font-normal mb-2" style={{color: '#1F1F1F'}}>口服药物</h4>
-                  <p className="text-sm" style={{color: '#6B7280'}}>抑制DHT生成，延缓脱发进程</p>
+                  <h4 className="text-base font-normal mb-2" style={{color: '#1F1F1F'}}>{t('hairTransplant.treatment.tier2.methods[1].title')}</h4>
+                  <p className="text-sm" style={{color: '#6B7280'}}>{t('hairTransplant.treatment.tier2.methods[1].desc')}</p>
                 </div>
               </div>
             </div>
@@ -221,21 +223,21 @@ function HairTransplantPage() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-light mb-2 tracking-wide" style={{color: '#1F1F1F'}}>
-                    外科手术（植发）
+                    {t('hairTransplant.treatment.tier3.title')}
                   </h3>
                   <p className="text-sm mb-4" style={{color: '#6B7280'}}>
-                    适用于永久性脱发，且药物治疗无效，但后枕部资源充足的雄激素性脱发患者，也用于修复疤痕性脱发。
+                    {t('hairTransplant.treatment.tier3.suitable')}
                   </p>
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ml-16">
                 <div className="p-4" style={{backgroundColor: '#F9FAFB'}}>
-                  <h4 className="text-base font-normal mb-2" style={{color: '#1F1F1F'}}>FUE技术</h4>
-                  <p className="text-sm" style={{color: '#6B7280'}}>单个毛囊提取种植，无痕迹，恢复快</p>
+                  <h4 className="text-base font-normal mb-2" style={{color: '#1F1F1F'}}>{t('hairTransplant.treatment.tier3.methods[0].title')}</h4>
+                  <p className="text-sm" style={{color: '#6B7280'}}>{t('hairTransplant.treatment.tier3.methods[0].desc')}</p>
                 </div>
                 <div className="p-4" style={{backgroundColor: '#F9FAFB'}}>
-                  <h4 className="text-base font-normal mb-2" style={{color: '#1F1F1F'}}>FUT技术</h4>
-                  <p className="text-sm" style={{color: '#6B7280'}}>条状取发，适合大面积脱发</p>
+                  <h4 className="text-base font-normal mb-2" style={{color: '#1F1F1F'}}>{t('hairTransplant.treatment.tier3.methods[1].title')}</h4>
+                  <p className="text-sm" style={{color: '#6B7280'}}>{t('hairTransplant.treatment.tier3.methods[1].desc')}</p>
                 </div>
               </div>
             </div>
@@ -247,7 +249,7 @@ function HairTransplantPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-light mb-6 tracking-wide" style={{color: '#1F1F1F'}}>
-              如何选择治疗方案？
+              {t('hairTransplant.treatment.selectionTitle')}
             </h2>
           </div>
 
@@ -258,9 +260,9 @@ function HairTransplantPage() {
                   1
                 </div>
                 <div>
-                  <h3 className="text-lg font-normal mb-2" style={{color: '#1F1F1F'}}>先诊断</h3>
+                  <h3 className="text-lg font-normal mb-2" style={{color: '#1F1F1F'}}>{t('hairTransplant.treatment.step1')}</h3>
                   <p className="text-sm leading-relaxed" style={{color: '#6B7280'}}>
-                    去正规医院皮肤科，明确脱发类型和原因。
+                    {t('hairTransplant.treatment.step1Desc')}
                   </p>
                 </div>
               </div>
@@ -270,38 +272,38 @@ function HairTransplantPage() {
                   2
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-normal mb-4" style={{color: '#1F1F1F'}}>后治疗：根据诊断结果选择方案</h3>
+                  <h3 className="text-lg font-normal mb-4" style={{color: '#1F1F1F'}}>{t('hairTransplant.treatment.step2')}</h3>
                   <div className="space-y-4">
                     <div className="pl-4 border-l-2" style={{borderColor: '#D1D5DB'}}>
                       <p className="text-sm font-normal mb-1" style={{color: '#1F1F1F'}}>
-                        急性短期脱发（如产后、压力大）
+                        {t('hairTransplant.treatment.scenarios[0].condition')}
                       </p>
                       <p className="text-sm" style={{color: '#6B7280'}}>
-                        首选第一层，通常可自愈。
+                        {t('hairTransplant.treatment.scenarios[0].solution')}
                       </p>
                     </div>
                     <div className="pl-4 border-l-2" style={{borderColor: '#D1D5DB'}}>
                       <p className="text-sm font-normal mb-1" style={{color: '#1F1F1F'}}>
-                        慢性进行性脱发（如雄激素性脱发）
+                        {t('hairTransplant.treatment.scenarios[1].condition')}
                       </p>
                       <p className="text-sm" style={{color: '#6B7280'}}>
-                        早期以第二层为主，若效果不佳再考虑第三层。
+                        {t('hairTransplant.treatment.scenarios[1].solution')}
                       </p>
                     </div>
                     <div className="pl-4 border-l-2" style={{borderColor: '#D1D5DB'}}>
                       <p className="text-sm font-normal mb-1" style={{color: '#1F1F1F'}}>
-                        毛囊未坏死
+                        {t('hairTransplant.treatment.scenarios[2].condition')}
                       </p>
                       <p className="text-sm" style={{color: '#6B7280'}}>
-                        可采用第二层药物治疗。
+                        {t('hairTransplant.treatment.scenarios[2].solution')}
                       </p>
                     </div>
                     <div className="pl-4 border-l-2" style={{borderColor: '#D1D5DB'}}>
                       <p className="text-sm font-normal mb-1" style={{color: '#1F1F1F'}}>
-                        毛囊已坏死
+                        {t('hairTransplant.treatment.scenarios[3].condition')}
                       </p>
                       <p className="text-sm" style={{color: '#6B7280'}}>
-                        只能靠第三层手术解决。
+                        {t('hairTransplant.treatment.scenarios[3].solution')}
                       </p>
                     </div>
                   </div>
@@ -316,20 +318,20 @@ function HairTransplantPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-light mb-6 tracking-wide" style={{color: '#1F1F1F'}}>
-              服务项目
+              {t('hairTransplant.services.title')}
             </h2>
             <p className="text-base md:text-lg max-w-3xl mx-auto leading-relaxed" style={{color: '#6B7280'}}>
-              专业团队，先进技术，为您提供个性化的植发解决方案
+              {t('hairTransplant.services.subtitle')}
             </p>
           </div>
 
           {/* Service Cards */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-16">
             {[
-              { key: 'fue' as const, title: 'FUE无痕植发', subtitle: '无痕迹恢复快' },
-              { key: 'hairline' as const, title: '发际线调整', subtitle: '精准设计提升' },
-              { key: 'eyebrow' as const, title: '眉毛种植', subtitle: '立体自然眉形' },
-              { key: 'beard' as const, title: '胡须种植', subtitle: '塑造男性魅力' },
+              { key: 'fue' as const, title: t('hairTransplant.services.fue.title'), subtitle: t('hairTransplant.services.fue.desc') },
+              { key: 'hairline' as const, title: t('hairTransplant.services.hairline.title'), subtitle: t('hairTransplant.services.hairline.desc') },
+              { key: 'eyebrow' as const, title: t('hairTransplant.services.eyebrow.title'), subtitle: t('hairTransplant.services.eyebrow.desc') },
+              { key: 'beard' as const, title: t('hairTransplant.services.beard.title'), subtitle: t('hairTransplant.services.beard.desc') },
             ].map((service) => (
               <button
                 key={service.key}
@@ -367,19 +369,24 @@ function HairTransplantPage() {
           <div className="bg-gray-50 p-8 md:p-12 border" style={{borderColor: '#E5E7EB'}}>
             <div className="max-w-4xl mx-auto">
               <h3 className="text-xl md:text-2xl font-light mb-4" style={{color: '#1F1F1F'}}>
-                {activeService === 'fue' && 'FUE无痕植发'}
-                {activeService === 'hairline' && '发际线调整'}
-                {activeService === 'eyebrow' && '眉毛种植'}
-                {activeService === 'beard' && '胡须种植'}
+                {activeService === 'fue' && t('hairTransplant.details.fue.title')}
+                {activeService === 'hairline' && t('hairTransplant.details.hairline.title')}
+                {activeService === 'eyebrow' && t('hairTransplant.details.eyebrow.title')}
+                {activeService === 'beard' && t('hairTransplant.details.beard.title')}
               </h3>
               <p className="text-sm md:text-base mb-8 leading-relaxed" style={{color: '#6B7280'}}>
-                {activeService === 'fue' && '采用先进的毛囊单位提取技术，逐个提取健康毛囊进行种植，无需开刀，不留疤痕，恢复快，效果自然。'}
-                {activeService === 'hairline' && '根据面部黄金比例设计发际线，优化面部轮廓，提升整体气质。适合发际线后移、M型脱发等情况。'}
-                {activeService === 'eyebrow' && '针对眉毛稀疏、缺失等问题，通过精细种植技术，打造立体自然的眉形，提升面部精致度。'}
-                {activeService === 'beard' && '为胡须稀疏的男士提供专业种植服务，塑造阳刚魅力，提升男性气质。'}
+                {activeService === 'fue' && t('hairTransplant.details.fue.desc')}
+                {activeService === 'hairline' && t('hairTransplant.details.hairline.desc')}
+                {activeService === 'eyebrow' && t('hairTransplant.details.eyebrow.desc')}
+                {activeService === 'beard' && t('hairTransplant.details.beard.desc')}
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {activeService === 'fue' && ['适合大面积脱发', '毛囊存活率高达95%以上', '术后3-5天即可正常工作', '无痕迹自然美观'].map((feature, index) => (
+                {activeService === 'fue' && [
+                  t('hairTransplant.details.fue.features[0]'),
+                  t('hairTransplant.details.fue.features[1]'),
+                  t('hairTransplant.details.fue.features[2]'),
+                  t('hairTransplant.details.fue.features[3]')
+                ].map((feature, index) => (
                   <div
                     key={index}
                     className="flex items-start gap-3 p-4 bg-white border"
@@ -389,7 +396,12 @@ function HairTransplantPage() {
                     <span className="text-sm md:text-base" style={{color: '#4B5563'}}>{feature}</span>
                   </div>
                 ))}
-                {activeService === 'hairline' && ['个性化设计方案', '符合面部美学比例', '显年轻，提升颜值', '精准种植自然流畅'].map((feature, index) => (
+                {activeService === 'hairline' && [
+                  t('hairTransplant.details.hairline.features[0]'),
+                  t('hairTransplant.details.hairline.features[1]'),
+                  t('hairTransplant.details.hairline.features[2]'),
+                  t('hairTransplant.details.hairline.features[3]')
+                ].map((feature, index) => (
                   <div
                     key={index}
                     className="flex items-start gap-3 p-4 bg-white border"
@@ -399,7 +411,12 @@ function HairTransplantPage() {
                     <span className="text-sm md:text-base" style={{color: '#4B5563'}}>{feature}</span>
                   </div>
                 ))}
-                {activeService === 'eyebrow' && ['根据脸型设计眉形', '一根一根精细种植', '永久保持，无需化妆', '立体自然眉形'].map((feature, index) => (
+                {activeService === 'eyebrow' && [
+                  t('hairTransplant.details.eyebrow.features[0]'),
+                  t('hairTransplant.details.eyebrow.features[1]'),
+                  t('hairTransplant.details.eyebrow.features[2]'),
+                  t('hairTransplant.details.eyebrow.features[3]')
+                ].map((feature, index) => (
                   <div
                     key={index}
                     className="flex items-start gap-3 p-4 bg-white border"
@@ -409,7 +426,12 @@ function HairTransplantPage() {
                     <span className="text-sm md:text-base" style={{color: '#4B5563'}}>{feature}</span>
                   </div>
                 ))}
-                {activeService === 'beard' && ['多种胡型可选', '生长方向精确控制', '增强男性魅力', '自然浓密效果'].map((feature, index) => (
+                {activeService === 'beard' && [
+                  t('hairTransplant.details.beard.features[0]'),
+                  t('hairTransplant.details.beard.features[1]'),
+                  t('hairTransplant.details.beard.features[2]'),
+                  t('hairTransplant.details.beard.features[3]')
+                ].map((feature, index) => (
                   <div
                     key={index}
                     className="flex items-start gap-3 p-4 bg-white border"
