@@ -4,6 +4,7 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { supabase } from '../lib/supabase';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface FAQItem {
   id: string;
@@ -16,14 +17,19 @@ interface FAQItem {
 
 export default function FAQPage() {
   const navigate = useNavigate();
+  const { t } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const [selectedCategory, setSelectedCategory] = useState<string>('全部');
+  const [selectedCategory, setSelectedCategory] = useState<string>(t('faqPage.allCategories'));
   const [faqData, setFaqData] = useState<FAQItem[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     loadFAQs();
   }, []);
+
+  useEffect(() => {
+    setSelectedCategory(t('faqPage.allCategories'));
+  }, [t]);
 
   const loadFAQs = async () => {
     try {
@@ -42,9 +48,9 @@ export default function FAQPage() {
     }
   };
 
-  const categories = ['全部', ...Array.from(new Set(faqData.map(item => item.category)))];
+  const categories = [t('faqPage.allCategories'), ...Array.from(new Set(faqData.map(item => item.category)))];
 
-  const filteredFAQs = selectedCategory === '全部'
+  const filteredFAQs = selectedCategory === t('faqPage.allCategories')
     ? faqData
     : faqData.filter(item => item.category === selectedCategory);
 
@@ -57,7 +63,7 @@ export default function FAQPage() {
       <div className="min-h-screen bg-white">
         <Navbar />
         <div className="flex items-center justify-center min-h-screen">
-          <div className="text-lg" style={{color: '#6B7280'}}>加载中...</div>
+          <div className="text-lg" style={{color: '#6B7280'}}>{t('faqPage.loading')}</div>
         </div>
       </div>
     );
@@ -70,10 +76,10 @@ export default function FAQPage() {
       <section className="pt-24 pb-12 md:pt-32 md:pb-16 px-6 md:px-12 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-3xl md:text-5xl font-light mb-4 tracking-wide" style={{color: '#1F1F1F'}}>
-            常见问题
+            {t('faqPage.title')}
           </h1>
           <p className="text-base md:text-lg tracking-wide" style={{color: '#6B7280'}}>
-            解答您关于整形手术的疑问
+            {t('faqPage.subtitle')}
           </p>
         </div>
       </section>
@@ -153,14 +159,14 @@ export default function FAQPage() {
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-5 rounded-full -ml-24 -mb-24"></div>
 
             <div className="relative">
-              <h2 className="text-2xl md:text-3xl font-light text-white mb-8 md:mb-12 tracking-wide">今天开始你的蜕变之旅</h2>
+              <h2 className="text-2xl md:text-3xl font-light text-white mb-8 md:mb-12 tracking-wide">{t('faqPage.ctaTitle')}</h2>
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mb-8 md:mb-12">
                 {[
-                  '点击回答问题',
-                  '上传图片',
-                  '为你定制专属方案',
-                  '为你开启旅途'
+                  t('faqPage.step1'),
+                  t('faqPage.step2'),
+                  t('faqPage.step3'),
+                  t('faqPage.step4')
                 ].map((step, index) => (
                   <div key={index} className="bg-white bg-opacity-10 backdrop-blur-sm p-6 md:p-8 text-white">
                     <div className="text-xl md:text-2xl font-light mb-2 md:mb-3">{index + 1}</div>
@@ -177,7 +183,7 @@ export default function FAQPage() {
                   onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#F3F4F6'}
                   onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FFFFFF'}
                 >
-                  开启你的蜕变之旅
+                  {t('faqPage.ctaButton')}
                 </button>
               </div>
             </div>

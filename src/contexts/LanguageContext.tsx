@@ -482,6 +482,18 @@ const zhTranslations = {
     successTitle: '预约成功！',
     successMessage: '您的预约已确认，我们的团队将尽快与您联系',
   },
+  faqPage: {
+    title: '常见问题',
+    subtitle: '解答您关于整形手术的疑问',
+    loading: '加载中...',
+    allCategories: '全部',
+    ctaTitle: '今天开始你的蜕变之旅',
+    step1: '点击回答问题',
+    step2: '上传图片',
+    step3: '为你定制专属方案',
+    step4: '为你开启旅途',
+    ctaButton: '开启你的蜕变之旅',
+  },
 };
 
 const enTranslations = {
@@ -913,6 +925,18 @@ const enTranslations = {
     backToHome: 'Back to Home',
     successTitle: 'Booking Successful!',
     successMessage: 'Your booking is confirmed, our team will contact you soon',
+  },
+  faqPage: {
+    title: 'Frequently Asked Questions',
+    subtitle: 'Answers to your questions about cosmetic procedures',
+    loading: 'Loading...',
+    allCategories: 'All',
+    ctaTitle: 'Start Your Transformation Journey Today',
+    step1: 'Answer Questions',
+    step2: 'Upload Photos',
+    step3: 'Get Custom Plan',
+    step4: 'Begin Journey',
+    ctaButton: 'Start Your Journey',
   },
 };
 
