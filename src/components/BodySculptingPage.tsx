@@ -439,65 +439,6 @@ function BodySculptingPage() {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-20 md:py-28 px-6 md:px-12 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-light mb-12 text-center" style={{color: '#1F1F1F'}}>
-            为什么选择我们
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-8 border transition-all duration-300" style={{borderColor: '#E5E7EB'}}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = '#1C2B3A';
-                e.currentTarget.style.transform = 'translateY(-4px)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = '#E5E7EB';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
-            >
-              <div className="text-4xl mb-4" style={{color: '#1C2B3A'}}>□</div>
-              <h3 className="text-lg md:text-xl font-normal mb-3" style={{color: '#1F1F1F'}}>先进技术</h3>
-              <p className="text-sm md:text-base leading-relaxed" style={{color: '#6B7280'}}>
-                采用国际领先的塑形技术，精准安全
-              </p>
-            </div>
-            <div className="p-8 border transition-all duration-300" style={{borderColor: '#E5E7EB'}}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = '#1C2B3A';
-                e.currentTarget.style.transform = 'translateY(-4px)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = '#E5E7EB';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
-            >
-              <div className="text-4xl mb-4" style={{color: '#1C2B3A'}}>□</div>
-              <h3 className="text-lg md:text-xl font-normal mb-3" style={{color: '#1F1F1F'}}>个性化方案</h3>
-              <p className="text-sm md:text-base leading-relaxed" style={{color: '#6B7280'}}>
-                根据身体比例量身定制最佳塑形方案
-              </p>
-            </div>
-            <div className="p-8 border transition-all duration-300" style={{borderColor: '#E5E7EB'}}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = '#1C2B3A';
-                e.currentTarget.style.transform = 'translateY(-4px)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = '#E5E7EB';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
-            >
-              <div className="text-4xl mb-4" style={{color: '#1C2B3A'}}>□</div>
-              <h3 className="text-lg md:text-xl font-normal mb-3" style={{color: '#1F1F1F'}}>快速恢复</h3>
-              <p className="text-sm md:text-base leading-relaxed" style={{color: '#6B7280'}}>
-                微创技术，恢复期短，效果自然持久
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <WhyYanoraSection />
 
       <CTASection />
