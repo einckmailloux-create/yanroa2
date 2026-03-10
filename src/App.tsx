@@ -1253,10 +1253,10 @@ function App() {
                     </div>
                     <div className="flex-1">
                       <h3 className="text-base md:text-lg font-normal mb-1.5 tracking-wide" style={{color: '#1F1F1F'}}>
-                        比例与量感失控
+                        {t('concerns.issue1Title')}
                       </h3>
                       <p className="text-xs md:text-sm leading-relaxed" style={{color: '#6B7280'}}>
-                        过度填充导致不符合生理基础的夸张形态，或对骨性结构不足的区域单纯做软组织增量，导致臃肿假面。
+                        {t('concerns.issue1Desc')}
                       </p>
                     </div>
                   </div>
@@ -1290,10 +1290,10 @@ function App() {
                     </div>
                     <div className="flex-1">
                       <h3 className="text-base md:text-lg font-normal mb-1.5 tracking-wide" style={{color: '#1F1F1F'}}>
-                        移位与下垂
+                        {t('concerns.issue2Title')}
                       </h3>
                       <p className="text-xs md:text-sm leading-relaxed" style={{color: '#6B7280'}}>
-                        为追求即时效果忽略组织承重，或材料选择/层次植入错误，后期因重力发生移位、下垂。
+                        {t('concerns.issue2Desc')}
                       </p>
                     </div>
                   </div>
@@ -1327,10 +1327,10 @@ function App() {
                     </div>
                     <div className="flex-1">
                       <h3 className="text-base md:text-lg font-normal mb-1.5 tracking-wide" style={{color: '#1F1F1F'}}>
-                        工业化流水线审美
+                        {t('concerns.issue3Title')}
                       </h3>
                       <p className="text-xs md:text-sm leading-relaxed" style={{color: '#6B7280'}}>
-                        部分医生倾向于用固定的术式套用在不同人脸上，忽略个人特色与整体协调性，导致"美得千篇一律"。
+                        {t('concerns.issue3Desc')}
                       </p>
                     </div>
                   </div>
@@ -1364,10 +1364,10 @@ function App() {
                     </div>
                     <div className="flex-1">
                       <h3 className="text-base md:text-lg font-normal mb-1.5 tracking-wide" style={{color: '#1F1F1F'}}>
-                        缺乏整体设计思维
+                        {t('concerns.issue4Title')}
                       </h3>
                       <p className="text-xs md:text-sm leading-relaxed" style={{color: '#6B7280'}}>
-                        只关注单一部位，比如只把眼睛放大，却忽略了眼睛与眉弓、颧骨、鼻梁的过渡关系，导致术后局部好看，整体别扭。
+                        {t('concerns.issue4Desc')}
                       </p>
                     </div>
                   </div>

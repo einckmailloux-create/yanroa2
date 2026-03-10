@@ -175,6 +175,14 @@ const zhTranslations = {
   },
   concerns: {
     title: '那些你担心或已经发生的问题',
+    issue1Title: '比例与量感失控',
+    issue1Desc: '过度填充导致不符合生理基础的夸张形态，或对骨性结构不足的区域单纯做软组织增量，导致臃肿假面。',
+    issue2Title: '移位与下垂',
+    issue2Desc: '为追求即时效果忽略组织承重，或材料选择/层次植入错误，后期因重力发生移位、下垂。',
+    issue3Title: '工业化流水线审美',
+    issue3Desc: '部分医生倾向于用固定的术式套用在不同人脸上，忽略个人特色与整体协调性，导致"美得千篇一律"。',
+    issue4Title: '缺乏整体设计思维',
+    issue4Desc: '只关注单一部位，比如只把眼睛放大，却忽略了眼睛与眉弓、颧骨、鼻梁的过渡关系，导致术后局部好看，整体别扭。',
   },
   facialAnalysis: {
     foreheadTitle: '额面分析',
@@ -619,6 +627,14 @@ const enTranslations = {
   },
   concerns: {
     title: 'Common Concerns You May Have',
+    issue1Title: 'Loss of Proportion and Volume Control',
+    issue1Desc: 'Excessive filling leads to exaggerated forms that don\'t align with natural anatomy, or simply adding soft tissue volume to areas lacking bone structure, resulting in a swollen mask-like appearance.',
+    issue2Title: 'Displacement and Sagging',
+    issue2Desc: 'Ignoring tissue load-bearing capacity for immediate results, or incorrect material selection/layer placement, leading to displacement and sagging due to gravity over time.',
+    issue3Title: 'Cookie-Cutter Aesthetic',
+    issue3Desc: 'Some doctors tend to apply fixed surgical techniques to different faces, ignoring individual features and overall harmony, resulting in "uniformly beautiful" but impersonal results.',
+    issue4Title: 'Lack of Holistic Design Thinking',
+    issue4Desc: 'Focusing only on isolated features, such as enlarging eyes while ignoring the relationship between eyes and brow ridge, cheekbones, and nose bridge, resulting in locally attractive but overall awkward appearance.',
   },
   facialAnalysis: {
     foreheadTitle: 'Forehead Analysis',
