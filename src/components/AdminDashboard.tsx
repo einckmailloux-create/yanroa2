@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
-import { LogOut, Calendar, Image, Users, HelpCircle, MessageSquare, FileImage, Shield } from 'lucide-react';
+import { LogOut, Calendar, Image, Users, HelpCircle, MessageSquare, FileImage, Shield, Images } from 'lucide-react';
 import BookingManagement from './BookingManagement';
 import CaseStudyManagement from './CaseStudyManagement';
+import DetailedCaseManagement from './DetailedCaseManagement';
 import DetailedCaseComparisonManagement from './DetailedCaseComparisonManagement';
 import FAQManagement from './FAQManagement';
 import TestimonialManagement from './TestimonialManagement';
@@ -16,7 +17,7 @@ interface Admin {
   role: string;
 }
 
-type TabType = 'bookings' | 'cases' | 'detailed-cases' | 'customers' | 'faqs' | 'testimonials' | 'admins';
+type TabType = 'bookings' | 'cases' | 'detailed-cases' | 'case-comparisons' | 'customers' | 'faqs' | 'testimonials' | 'admins';
 
 function AdminDashboard() {
   const navigate = useNavigate();
@@ -127,6 +128,17 @@ function AdminDashboard() {
               }`}
               style={{color: activeTab === 'detailed-cases' ? '#1F1F1F' : '#6B7280'}}
             >
+              <Images className="w-5 h-5" />
+              完整案例管理
+            </button>
+
+            <button
+              onClick={() => setActiveTab('case-comparisons')}
+              className={`w-full flex items-center gap-3 px-4 py-3 text-sm transition ${
+                activeTab === 'case-comparisons' ? 'bg-white shadow-sm' : ''
+              }`}
+              style={{color: activeTab === 'case-comparisons' ? '#1F1F1F' : '#6B7280'}}
+            >
               <FileImage className="w-5 h-5" />
               详细案例对比管理
             </button>
@@ -182,7 +194,8 @@ function AdminDashboard() {
         <main className="flex-1 p-8">
           {activeTab === 'bookings' && <BookingManagement />}
           {activeTab === 'cases' && <CaseStudyManagement />}
-          {activeTab === 'detailed-cases' && <DetailedCaseComparisonManagement />}
+          {activeTab === 'detailed-cases' && <DetailedCaseManagement />}
+          {activeTab === 'case-comparisons' && <DetailedCaseComparisonManagement />}
           {activeTab === 'customers' && <CustomerManagement />}
           {activeTab === 'faqs' && <FAQManagement />}
           {activeTab === 'testimonials' && <TestimonialManagement />}
