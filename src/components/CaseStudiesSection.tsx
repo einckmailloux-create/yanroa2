@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface CaseStudy {
   id: string;
@@ -8,6 +9,7 @@ interface CaseStudy {
 }
 
 function CaseStudiesSection() {
+  const { t } = useLanguage();
   const [cases, setCases] = useState<CaseStudy[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -48,7 +50,7 @@ function CaseStudiesSection() {
       <section className="py-8 md:py-16 px-2 md:px-6 bg-white">
         <div className="max-w-[1600px] mx-auto">
           <h2 className="text-xl md:text-3xl font-light text-center mb-3 md:mb-4 tracking-wide" style={{color: '#1F1F1F'}}>
-            他们通过 YANOR A 找回的自信
+            {t('caseStudies.confidenceTitle')}
           </h2>
           <div className="w-16 md:w-20 h-px mx-auto mb-6 md:mb-12" style={{backgroundColor: '#A0A7B5'}}></div>
 
@@ -90,7 +92,7 @@ function CaseStudiesSection() {
     <section className="py-8 md:py-16 px-2 md:px-6 bg-white">
       <div className="max-w-[1600px] mx-auto">
         <h2 className="text-xl md:text-3xl font-light text-center mb-3 md:mb-4 tracking-wide" style={{color: '#1F1F1F'}}>
-          他们通过 YANOR A 找回的自信
+          {t('caseStudies.confidenceTitle')}
         </h2>
         <div className="w-16 md:w-20 h-px mx-auto mb-6 md:mb-12" style={{backgroundColor: '#A0A7B5'}}></div>
 

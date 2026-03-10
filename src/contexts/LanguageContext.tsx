@@ -135,6 +135,7 @@ const zhTranslations = {
   },
   caseStudies: {
     title: '成功案例',
+    confidenceTitle: '他们通过 YANOR A 找回的自信',
     viewAll: '查看所有案例',
   },
   testimonials: {
@@ -587,6 +588,7 @@ const enTranslations = {
   },
   caseStudies: {
     title: 'Success Stories',
+    confidenceTitle: 'Confidence Restored Through YANORA',
     viewAll: 'View All Cases',
   },
   testimonials: {
