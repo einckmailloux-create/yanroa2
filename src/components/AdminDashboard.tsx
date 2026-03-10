@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
-import { LogOut, Calendar, Image, Users, HelpCircle, MessageSquare, FileImage } from 'lucide-react';
+import { LogOut, Calendar, Image, Users, HelpCircle, MessageSquare, FileImage, Shield } from 'lucide-react';
 import BookingManagement from './BookingManagement';
 import CaseStudyManagement from './CaseStudyManagement';
 import DetailedCaseManagement from './DetailedCaseManagement';
 import FAQManagement from './FAQManagement';
 import TestimonialManagement from './TestimonialManagement';
 import CustomerManagement from './CustomerManagement';
+import AdminManagement from './AdminManagement';
 
 interface Admin {
   id: string;
@@ -15,7 +16,7 @@ interface Admin {
   role: string;
 }
 
-type TabType = 'bookings' | 'cases' | 'detailed-cases' | 'customers' | 'faqs' | 'testimonials';
+type TabType = 'bookings' | 'cases' | 'detailed-cases' | 'customers' | 'faqs' | 'testimonials' | 'admins';
 
 function AdminDashboard() {
   const navigate = useNavigate();
@@ -162,6 +163,19 @@ function AdminDashboard() {
               <MessageSquare className="w-5 h-5" />
               客户评价管理
             </button>
+
+            {admin?.role === 'super_admin' && (
+              <button
+                onClick={() => setActiveTab('admins')}
+                className={`w-full flex items-center gap-3 px-4 py-3 text-sm transition ${
+                  activeTab === 'admins' ? 'bg-white shadow-sm' : ''
+                }`}
+                style={{color: activeTab === 'admins' ? '#1F1F1F' : '#6B7280'}}
+              >
+                <Shield className="w-5 h-5" />
+                管理员管理
+              </button>
+            )}
           </nav>
         </aside>
 
@@ -172,6 +186,7 @@ function AdminDashboard() {
           {activeTab === 'customers' && <CustomerManagement />}
           {activeTab === 'faqs' && <FAQManagement />}
           {activeTab === 'testimonials' && <TestimonialManagement />}
+          {activeTab === 'admins' && <AdminManagement />}
         </main>
       </div>
     </div>
