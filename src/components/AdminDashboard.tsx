@@ -128,7 +128,7 @@ function AdminDashboard() {
               style={{color: activeTab === 'detailed-cases' ? '#1F1F1F' : '#6B7280'}}
             >
               <FileImage className="w-5 h-5" />
-              完整案例管理
+              详细案例对比管理
             </button>
 
             <button
