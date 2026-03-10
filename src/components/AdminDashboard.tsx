@@ -4,7 +4,7 @@ import { supabase } from '../lib/supabase';
 import { LogOut, Calendar, Image, Users, HelpCircle, MessageSquare, FileImage, Shield } from 'lucide-react';
 import BookingManagement from './BookingManagement';
 import CaseStudyManagement from './CaseStudyManagement';
-import DetailedCaseManagement from './DetailedCaseManagement';
+import DetailedCaseComparisonManagement from './DetailedCaseComparisonManagement';
 import FAQManagement from './FAQManagement';
 import TestimonialManagement from './TestimonialManagement';
 import CustomerManagement from './CustomerManagement';
@@ -182,7 +182,7 @@ function AdminDashboard() {
         <main className="flex-1 p-8">
           {activeTab === 'bookings' && <BookingManagement />}
           {activeTab === 'cases' && <CaseStudyManagement />}
-          {activeTab === 'detailed-cases' && <DetailedCaseManagement />}
+          {activeTab === 'detailed-cases' && <DetailedCaseComparisonManagement />}
           {activeTab === 'customers' && <CustomerManagement />}
           {activeTab === 'faqs' && <FAQManagement />}
           {activeTab === 'testimonials' && <TestimonialManagement />}

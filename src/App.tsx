@@ -18,9 +18,32 @@ interface Profile {
   email: string;
 }
 
+interface DetailedCaseComparison {
+  id: string;
+  title_zh: string;
+  title_en: string;
+  before_image_url: string;
+  after_image_url: string;
+  timeline_months: number;
+  feature1_title_zh: string;
+  feature1_title_en: string;
+  feature1_desc_zh: string;
+  feature1_desc_en: string;
+  feature2_title_zh: string;
+  feature2_title_en: string;
+  feature2_desc_zh: string;
+  feature2_desc_en: string;
+  feature3_title_zh: string;
+  feature3_title_en: string;
+  feature3_desc_zh: string;
+  feature3_desc_en: string;
+  display_order: number;
+  is_active: boolean;
+}
+
 function App() {
   const navigate = useNavigate();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [user, setUser] = useState<User | null>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
   const [showUserMenu, setShowUserMenu] = useState(false);
@@ -30,6 +53,7 @@ function App() {
   const [expandedEthnicity, setExpandedEthnicity] = useState<string | null>(null);
   const [showSplash, setShowSplash] = useState(true);
   const [hasShownSplash, setHasShownSplash] = useState(false);
+  const [detailedCases, setDetailedCases] = useState<DetailedCaseComparison[]>([]);
 
   useEffect(() => {
     const splashShown = sessionStorage.getItem('splashShown');
@@ -60,6 +84,25 @@ function App() {
 
     return () => subscription.unsubscribe();
   }, []);
+
+  useEffect(() => {
+    fetchDetailedCases();
+  }, []);
+
+  const fetchDetailedCases = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('detailed_case_comparisons')
+        .select('*')
+        .eq('is_active', true)
+        .order('display_order', { ascending: true });
+
+      if (error) throw error;
+      setDetailedCases(data || []);
+    } catch (error) {
+      console.error('Error fetching detailed cases:', error);
+    }
+  };
 
   const loadProfile = async (userId: string) => {
     const { data, error } = await supabase
@@ -1364,168 +1407,136 @@ function App() {
       <section className="py-8 md:py-24 px-3 md:px-12 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-4xl font-light text-center mb-6 md:mb-8" style={{color: '#1F2937'}}>
-            {t('realCases.title')}
+            {detailedCases.length > 0 ? (language === 'zh' ? detailedCases[0].title_zh : detailedCases[0].title_en) : t('realCases.title')}
           </h2>
 
-          {/* Desktop layout - two cases side by side */}
-          <div className="hidden md:grid md:grid-cols-2 gap-8 lg:gap-12">
-            {/* First case */}
-            <div className="bg-white rounded-lg overflow-hidden shadow-lg">
-              <div className="grid grid-cols-2 gap-0">
-                <div className="aspect-[3/4] flex items-center justify-center" style={{backgroundColor: '#E5E7EB'}}>
-                  <span className="text-gray-600 text-sm font-light">{t('realCases.before')}</span>
-                </div>
-                <div className="aspect-[3/4] flex items-center justify-center" style={{backgroundColor: '#D1D5DB'}}>
-                  <span className="text-gray-700 text-sm font-light">{t('realCases.after')}</span>
-                </div>
-              </div>
+          {detailedCases.length > 0 ? (
+            <>
+              {/* Desktop layout - cases side by side */}
+              <div className="hidden md:grid md:grid-cols-2 gap-8 lg:gap-12">
+                {detailedCases.map((caseItem) => (
+                  <div key={caseItem.id} className="bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div className="grid grid-cols-2 gap-0">
+                      <div className="aspect-[3/4] overflow-hidden">
+                        <img
+                          src={caseItem.before_image_url}
+                          alt={t('realCases.before')}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="aspect-[3/4] overflow-hidden">
+                        <img
+                          src={caseItem.after_image_url}
+                          alt={t('realCases.after')}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
 
-              <div className="p-6 space-y-4">
-                <div className="space-y-2">
-                  <p className="text-sm font-medium" style={{color: '#1F2937'}}>手术前特征：</p>
-                  <div className="space-y-1 text-xs" style={{color: '#6B7280'}}>
-                    <p>• 面部轮廓不够立体</p>
-                    <p>• 鼻梁较低</p>
-                    <p>• 下颌线条不够明显</p>
+                    <div className="p-6 space-y-4">
+                      <div className="space-y-3">
+                        <div>
+                          <p className="text-sm font-medium mb-1" style={{color: '#1F2937'}}>
+                            {language === 'zh' ? caseItem.feature1_title_zh : caseItem.feature1_title_en}
+                          </p>
+                          <p className="text-xs" style={{color: '#6B7280'}}>
+                            {language === 'zh' ? caseItem.feature1_desc_zh : caseItem.feature1_desc_en}
+                          </p>
+                        </div>
+
+                        <div>
+                          <p className="text-sm font-medium mb-1" style={{color: '#1F2937'}}>
+                            {language === 'zh' ? caseItem.feature2_title_zh : caseItem.feature2_title_en}
+                          </p>
+                          <p className="text-xs" style={{color: '#6B7280'}}>
+                            {language === 'zh' ? caseItem.feature2_desc_zh : caseItem.feature2_desc_en}
+                          </p>
+                        </div>
+
+                        <div>
+                          <p className="text-sm font-medium mb-1" style={{color: '#1F2937'}}>
+                            {language === 'zh' ? caseItem.feature3_title_zh : caseItem.feature3_title_en}
+                          </p>
+                          <p className="text-xs" style={{color: '#6B7280'}}>
+                            {language === 'zh' ? caseItem.feature3_desc_zh : caseItem.feature3_desc_en}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                ))}
+              </div>
 
-                <div className="space-y-2">
-                  <p className="text-sm font-medium" style={{color: '#1F2937'}}>手术后特征：</p>
-                  <div className="space-y-1 text-xs" style={{color: '#6B7280'}}>
-                    <p>• 面部轮廓立体分明</p>
-                    <p>• 鼻梁挺拔自然</p>
-                    <p>• 下颌线条流畅优雅</p>
+              {/* Mobile layout - new design inspired by reference */}
+              <div className="md:hidden space-y-6">
+                {detailedCases.map((caseItem) => (
+                  <div key={caseItem.id} className="bg-white p-6" style={{borderColor: '#B9CBDC', border: '3px solid #B9CBDC'}}>
+                    {/* Before/After Images */}
+                    <div className="grid grid-cols-2 gap-3 mb-6">
+                      <div className="aspect-[3/5] overflow-hidden">
+                        <img
+                          src={caseItem.before_image_url}
+                          alt={t('realCases.before')}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="aspect-[3/5] overflow-hidden">
+                        <img
+                          src={caseItem.after_image_url}
+                          alt={t('realCases.after')}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Timeline */}
+                    <div className="relative mb-8">
+                      <div className="absolute left-0 right-0 top-1/2 h-px" style={{backgroundColor: '#D1D5DB', transform: 'translateY(-50%)'}}></div>
+                      <div className="relative text-center">
+                        <span className="inline-block px-4 py-1 text-sm font-light" style={{backgroundColor: '#F3F4F6', color: '#6B7280'}}>
+                          {caseItem.timeline_months} {t('realCases.months')}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Features list */}
+                    <div className="space-y-6">
+                      <div className="text-center">
+                        <h3 className="text-lg font-normal mb-3" style={{color: '#1F1F1F'}}>
+                          {language === 'zh' ? caseItem.feature1_title_zh : caseItem.feature1_title_en}
+                        </h3>
+                        <p className="text-xs leading-relaxed" style={{color: '#6B7280'}}>
+                          {language === 'zh' ? caseItem.feature1_desc_zh : caseItem.feature1_desc_en}
+                        </p>
+                      </div>
+
+                      <div className="text-center">
+                        <h3 className="text-lg font-normal mb-3" style={{color: '#1F1F1F'}}>
+                          {language === 'zh' ? caseItem.feature2_title_zh : caseItem.feature2_title_en}
+                        </h3>
+                        <p className="text-xs leading-relaxed" style={{color: '#6B7280'}}>
+                          {language === 'zh' ? caseItem.feature2_desc_zh : caseItem.feature2_desc_en}
+                        </p>
+                      </div>
+
+                      <div className="text-center">
+                        <h3 className="text-lg font-normal mb-3" style={{color: '#1F1F1F'}}>
+                          {language === 'zh' ? caseItem.feature3_title_zh : caseItem.feature3_title_en}
+                        </h3>
+                        <p className="text-xs leading-relaxed" style={{color: '#6B7280'}}>
+                          {language === 'zh' ? caseItem.feature3_desc_zh : caseItem.feature3_desc_en}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
+            </>
+          ) : (
+            <div className="text-center py-12 text-gray-500">
+              {language === 'zh' ? '暂无案例数据' : 'No case data available'}
             </div>
-
-            {/* Second case */}
-            <div className="bg-white rounded-lg overflow-hidden shadow-lg">
-              <div className="grid grid-cols-2 gap-0">
-                <div className="aspect-[3/4] flex items-center justify-center" style={{backgroundColor: '#E5E7EB'}}>
-                  <span className="text-gray-600 text-sm font-light">{t('realCases.before')}</span>
-                </div>
-                <div className="aspect-[3/4] flex items-center justify-center" style={{backgroundColor: '#D1D5DB'}}>
-                  <span className="text-gray-700 text-sm font-light">{t('realCases.after')}</span>
-                </div>
-              </div>
-
-              <div className="p-6 space-y-4">
-                <div className="space-y-2">
-                  <p className="text-sm font-medium" style={{color: '#1F2937'}}>手术前特征：</p>
-                  <div className="space-y-1 text-xs" style={{color: '#6B7280'}}>
-                    <p>• 眼部形态不够精致</p>
-                    <p>• 皮肤松弛下垂</p>
-                    <p>• 面部缺乏年轻活力</p>
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <p className="text-sm font-medium" style={{color: '#1F2937'}}>手术后特征：</p>
-                  <div className="space-y-1 text-xs" style={{color: '#6B7280'}}>
-                    <p>• 眼部深邃迷人</p>
-                    <p>• 皮肤紧致年轻</p>
-                    <p>• 面部线条柔美自然</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Mobile layout - new design inspired by reference */}
-          <div className="md:hidden space-y-6">
-            {/* First case */}
-            <div className="bg-white p-6" style={{borderColor: '#B9CBDC', border: '3px solid #B9CBDC'}}>
-              {/* Before/After Images */}
-              <div className="grid grid-cols-2 gap-3 mb-6">
-                <div className="aspect-[3/5] overflow-hidden flex items-center justify-center" style={{backgroundColor: '#B9CBDC'}}>
-                  <span className="text-gray-600 text-xs">{t('realCases.before')}</span>
-                </div>
-                <div className="aspect-[3/5] overflow-hidden flex items-center justify-center" style={{backgroundColor: '#A0A7B5'}}>
-                  <span className="text-white text-xs">{t('realCases.after')}</span>
-                </div>
-              </div>
-
-              {/* Timeline */}
-              <div className="relative mb-8">
-                <div className="absolute left-0 right-0 top-1/2 h-px" style={{backgroundColor: '#D1D5DB', transform: 'translateY(-50%)'}}></div>
-                <div className="relative text-center">
-                  <span className="inline-block px-4 py-1 text-sm font-light" style={{backgroundColor: '#F3F4F6', color: '#6B7280'}}>8 {t('realCases.months')}</span>
-                </div>
-              </div>
-
-              {/* Features list */}
-              <div className="space-y-6">
-                <div className="text-center">
-                  <h3 className="text-lg font-normal mb-3" style={{color: '#1F1F1F'}}>面部轮廓立体提升</h3>
-                  <p className="text-xs leading-relaxed" style={{color: '#6B7280'}}>
-                    通过专业的面部轮廓手术，使面部线条更加立体分明
-                  </p>
-                </div>
-
-                <div className="text-center">
-                  <h3 className="text-lg font-normal mb-3" style={{color: '#1F1F1F'}}>鼻梁挺拔自然</h3>
-                  <p className="text-xs leading-relaxed" style={{color: '#6B7280'}}>
-                    精准的鼻部整形技术，打造自然挺拔的鼻梁线条
-                  </p>
-                </div>
-
-                <div className="text-center">
-                  <h3 className="text-lg font-normal mb-3" style={{color: '#1F1F1F'}}>下颌线条优化</h3>
-                  <p className="text-xs leading-relaxed" style={{color: '#6B7280'}}>
-                    塑造流畅优雅的下颌线条，提升整体面部和谐度
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Second case */}
-            <div className="bg-white p-6" style={{borderColor: '#B9CBDC', border: '3px solid #B9CBDC'}}>
-              {/* Before/After Images */}
-              <div className="grid grid-cols-2 gap-3 mb-6">
-                <div className="aspect-[3/5] overflow-hidden flex items-center justify-center" style={{backgroundColor: '#B9CBDC'}}>
-                  <span className="text-gray-600 text-xs">{t('realCases.before')}</span>
-                </div>
-                <div className="aspect-[3/5] overflow-hidden flex items-center justify-center" style={{backgroundColor: '#A0A7B5'}}>
-                  <span className="text-white text-xs">{t('realCases.after')}</span>
-                </div>
-              </div>
-
-              {/* Timeline */}
-              <div className="relative mb-8">
-                <div className="absolute left-0 right-0 top-1/2 h-px" style={{backgroundColor: '#D1D5DB', transform: 'translateY(-50%)'}}></div>
-                <div className="relative text-center">
-                  <span className="inline-block px-4 py-1 text-sm font-light" style={{backgroundColor: '#F3F4F6', color: '#6B7280'}}>6 {t('realCases.months')}</span>
-                </div>
-              </div>
-
-              {/* Features list */}
-              <div className="space-y-6">
-                <div className="text-center">
-                  <h3 className="text-lg font-normal mb-3" style={{color: '#1F1F1F'}}>眼部轮廓精致化</h3>
-                  <p className="text-xs leading-relaxed" style={{color: '#6B7280'}}>
-                    打造深邃迷人的双眼，让眼神更加有神采
-                  </p>
-                </div>
-
-                <div className="text-center">
-                  <h3 className="text-lg font-normal mb-3" style={{color: '#1F1F1F'}}>皮肤紧致提升</h3>
-                  <p className="text-xs leading-relaxed" style={{color: '#6B7280'}}>
-                    改善肌肤松弛问题，恢复年轻紧致状态
-                  </p>
-                </div>
-
-                <div className="text-center">
-                  <h3 className="text-lg font-normal mb-3" style={{color: '#1F1F1F'}}>整体气质提升</h3>
-                  <p className="text-xs leading-relaxed" style={{color: '#6B7280'}}>
-                    细节调整，打造更加协调自然的面部美感
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          )}
         </div>
       </section>
 
