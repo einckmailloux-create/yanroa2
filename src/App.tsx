@@ -953,13 +953,13 @@ function App() {
               <div className="flex-shrink-0 w-24">
                 <img
                   src="/ecd4dea6a9aeb8932f049b884f734919.jpg"
-                  alt="额部分析"
+                  alt={t('facialAnalysis.foreheadTitle')}
                   className="w-full h-auto object-cover rounded-lg"
                 />
               </div>
               <div className="flex-1">
                 <p className="text-xs leading-relaxed" style={{color: '#1F2937'}}>
-                  额面分为明区 灰区 暗区  三个转折面 额结节的高低影响 额头的饱满度和立体度
+                  {t('facialAnalysis.foreheadDesc')}
                 </p>
               </div>
             </div>
@@ -968,13 +968,13 @@ function App() {
               <div className="flex-shrink-0 w-24">
                 <img
                   src="/0b9a6dc4116a99bdcba731e6384301b3.jpg"
-                  alt="外轮廓分析"
+                  alt={t('facialAnalysis.outerContourTitle')}
                   className="w-full h-auto object-cover rounded-lg"
                 />
               </div>
               <div className="flex-1">
                 <p className="text-xs leading-relaxed" style={{color: '#1F2937'}}>
-                  发际线 太阳穴 脸颊下颌骨 下巴的凹凸关系 决定了外轮廓的流畅度
+                  {t('facialAnalysis.outerContourDesc')}
                 </p>
               </div>
             </div>
@@ -983,13 +983,13 @@ function App() {
               <div className="flex-shrink-0 w-24">
                 <img
                   src="/e9d22fcf270788298cf5cc46aa47e5e6.jpg"
-                  alt="内轮廓分析"
+                  alt={t('facialAnalysis.innerContourTitle')}
                   className="w-full h-auto object-cover rounded-lg"
                 />
               </div>
               <div className="flex-1">
                 <p className="text-xs leading-relaxed" style={{color: '#1F2937'}}>
-                  内轮廓的大小、立体度、苹果肌饱满度及平整度共同决定面部精致感与年轻态。
+                  {t('facialAnalysis.innerContourDesc')}
                 </p>
               </div>
             </div>
@@ -1004,44 +1004,44 @@ function App() {
         <div className="max-w-7xl mx-auto rounded-3xl p-6 md:p-8" style={{backgroundColor: '#FFFFFF'}}>
           <AnimatedSection animation="fade-up">
             <h2 className="text-2xl md:text-3xl font-light text-center mb-3 tracking-wide" style={{color: '#1F1F1F'}}>
-              面部折叠度
+              {t('facialFold.title')}
             </h2>
             <p className="text-sm md:text-base text-center mb-8 md:mb-12 tracking-wide" style={{color: '#6B7280'}}>
-              面部折叠度是衡量面部年轻态的关键指标，通过对比可以直观感受岁月在面部留下的痕迹
+              {t('facialFold.subtitle')}
             </p>
           </AnimatedSection>
 
           <div className="grid grid-cols-2 gap-4 md:gap-8">
             <AnimatedSection animation="fade-left" delay={100} className="space-y-3 md:space-y-4">
-              <h3 className="text-sm md:text-lg font-medium text-center" style={{color: '#1F1F1F'}}>低折叠度</h3>
+              <h3 className="text-sm md:text-lg font-medium text-center" style={{color: '#1F1F1F'}}>{t('facialFold.lowFold')}</h3>
               <div className="rounded-2xl overflow-hidden" style={{backgroundColor: '#F5F8FA'}}>
                 <img
                   src="/c902ff4b95da45684c7afeaa83488729.jpg"
-                  alt="年轻面部状态"
+                  alt={t('facialFold.youngState')}
                   className="w-full h-auto object-cover"
                 />
               </div>
               <div className="rounded-2xl overflow-hidden flex items-center justify-center p-4 md:p-6" style={{backgroundColor: '#F5F8FA'}}>
                 <img
                   src="/Gemini_Generated_Image_ig76luig76luig76.png"
-                  alt="3D面部图示"
+                  alt={t('facialFold.diagram3d')}
                   className="w-auto h-20 md:h-40 object-contain"
                 />
               </div>
             </AnimatedSection>
             <AnimatedSection animation="fade-right" delay={100} className="space-y-3 md:space-y-4">
-              <h3 className="text-sm md:text-lg font-medium text-center" style={{color: '#1F1F1F'}}>高折叠度</h3>
+              <h3 className="text-sm md:text-lg font-medium text-center" style={{color: '#1F1F1F'}}>{t('facialFold.highFold')}</h3>
               <div className="rounded-2xl overflow-hidden" style={{backgroundColor: '#F5F8FA'}}>
                 <img
                   src="/6ddd0ec9ec91d3e5b3bc59d068c2a2b5.jpg"
-                  alt="成熟面部状态"
+                  alt={t('facialFold.youngState')}
                   className="w-full h-auto object-cover"
                 />
               </div>
               <div className="rounded-2xl overflow-hidden flex items-center justify-center p-4 md:p-6" style={{backgroundColor: '#F5F8FA'}}>
                 <img
                   src="/Gemini_Generated_Image_x86obtx86obtx86o.png"
-                  alt="3D面部图示"
+                  alt={t('facialFold.diagram3d')}
                   className="w-auto h-20 md:h-40 object-contain"
                 />
               </div>
@@ -1225,7 +1225,7 @@ function App() {
         <div className="max-w-6xl mx-auto">
           <AnimatedSection animation="fade-up">
             <h2 className="text-2xl md:text-3xl font-light text-center mb-4 tracking-wide" style={{color: '#1F1F1F'}}>
-              那些你担心或已经发生的问题
+              {t('concerns.title')}
             </h2>
             <div className="w-16 h-px mx-auto mb-12 md:mb-16" style={{backgroundColor: '#B9CBDC'}}></div>
           </AnimatedSection>
