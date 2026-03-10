@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import ImageCompareSlider from './ImageCompareSlider';
 import CTASection from './CTASection';
 import ServiceCasesSection from './ServiceCasesSection';
 import WhyYanoraSection from './WhyYanoraSection';
@@ -10,25 +9,6 @@ import { useState } from 'react';
 function HairTransplantPage() {
   const navigate = useNavigate();
   const [activeService, setActiveService] = useState<'fue' | 'hairline' | 'eyebrow' | 'beard'>('fue');
-
-  const caseStudies = [
-    {
-      id: 1,
-      title: 'FUE无痕植发案例',
-      category: '头顶加密',
-      beforeImage: '/Gemini_Generated_Image_94iwds94iwds94iw.png',
-      afterImage: '/Gemini_Generated_Image_iubeodiubeodiube.png',
-      description: '采用FUE技术进行头顶加密，术后6个月效果自然浓密，发际线流畅自然。'
-    },
-    {
-      id: 2,
-      title: '发际线调整案例',
-      category: '发际线种植',
-      beforeImage: '/Gemini_Generated_Image_u1lac1u1lac1u1la.png',
-      afterImage: '/Gemini_Generated_Image_94iwds94iwds94iw.png',
-      description: '根据面部比例精准设计发际线，成功改善M型脱发，提升整体气质。'
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-white">
@@ -525,89 +505,6 @@ function HairTransplantPage() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28 px-6 md:px-12" style={{backgroundColor: '#F9FAFB'}}>
-        <div className="max-w-7xl mx-auto">
-
-          <div className="space-y-16">
-            {caseStudies.map((caseStudy, index) => (
-              <div key={caseStudy.id} className="bg-white border" style={{borderColor: '#E5E7EB'}}>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-                  <div className="p-6 md:p-8 min-h-[500px] md:min-h-[600px] flex items-center">
-                    <ImageCompareSlider
-                      beforeImage={caseStudy.beforeImage}
-                      afterImage={caseStudy.afterImage}
-                      altBefore={`${caseStudy.title} - 术前`}
-                      altAfter={`${caseStudy.title} - 术后`}
-                    />
-                  </div>
-
-                  <div className="p-6 md:p-8 flex flex-col justify-center">
-                    <div className="mb-4">
-                      <span
-                        className="inline-block px-4 py-1 text-xs font-light tracking-wider"
-                        style={{backgroundColor: '#1C2B3A', color: 'white'}}
-                      >
-                        {caseStudy.category}
-                      </span>
-                    </div>
-                    <h3 className="text-xl md:text-2xl font-light mb-4" style={{color: '#1F1F1F'}}>
-                      案例 {String(index + 1).padStart(2, '0')}
-                    </h3>
-                    <h4 className="text-lg md:text-xl font-normal mb-4" style={{color: '#1F1F1F'}}>
-                      {caseStudy.title}
-                    </h4>
-                    <p className="text-sm md:text-base leading-relaxed" style={{color: '#6B7280'}}>
-                      {caseStudy.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 px-6 md:px-12" style={{backgroundColor: '#1C2B3A'}}>
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-light mb-6 tracking-wide text-white">
-              为什么选择我们
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-8">
-              <div className="w-16 h-16 rounded-full flex items-center justify-center text-2xl font-light mx-auto mb-6" style={{backgroundColor: 'rgba(255,255,255,0.2)', color: 'white'}}>
-                95%
-              </div>
-              <h3 className="text-lg font-normal mb-3 text-white">高存活率</h3>
-              <p className="text-sm text-white opacity-80 leading-relaxed">
-                采用国际领先的微创技术，毛囊存活率高达95%以上，确保植发效果
-              </p>
-            </div>
-
-            <div className="text-center p-8">
-              <div className="w-16 h-16 rounded-full flex items-center justify-center text-2xl font-light mx-auto mb-6" style={{backgroundColor: 'rgba(255,255,255,0.2)', color: 'white'}}>
-                ★
-              </div>
-              <h3 className="text-lg font-normal mb-3 text-white">自然美观</h3>
-              <p className="text-sm text-white opacity-80 leading-relaxed">
-                精细种植，严格控制种植角度和方向，术后效果自然，看不出痕迹
-              </p>
-            </div>
-
-            <div className="text-center p-8">
-              <div className="w-16 h-16 rounded-full flex items-center justify-center text-2xl font-light mx-auto mb-6" style={{backgroundColor: 'rgba(255,255,255,0.2)', color: 'white'}}>
-                ∞
-              </div>
-              <h3 className="text-lg font-normal mb-3 text-white">永久保持</h3>
-              <p className="text-sm text-white opacity-80 leading-relaxed">
-                种植的毛发来自后枕部不受DHT影响的健康毛囊，可永久生长
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <ServiceCasesSection serviceType="hair" />
 
