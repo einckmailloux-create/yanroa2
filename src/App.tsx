@@ -1415,7 +1415,7 @@ function App() {
               {/* Desktop layout - cases side by side */}
               <div className="hidden md:grid md:grid-cols-2 gap-8 lg:gap-12">
                 {detailedCases.map((caseItem) => (
-                  <div key={caseItem.id} className="bg-white rounded-lg overflow-hidden shadow-lg">
+                  <div key={caseItem.id} className="bg-white overflow-hidden" style={{border: '2px solid #E5E7EB'}}>
                     <div className="grid grid-cols-2 gap-0">
                       <div className="aspect-[3/4] overflow-hidden">
                         <img
@@ -1433,34 +1433,32 @@ function App() {
                       </div>
                     </div>
 
-                    <div className="p-6 space-y-4">
-                      <div className="space-y-3">
-                        <div>
-                          <p className="text-sm font-medium mb-1" style={{color: '#1F2937'}}>
-                            {language === 'zh' ? caseItem.feature1_title_zh : caseItem.feature1_title_en}
-                          </p>
-                          <p className="text-xs" style={{color: '#6B7280'}}>
-                            {language === 'zh' ? caseItem.feature1_desc_zh : caseItem.feature1_desc_en}
-                          </p>
-                        </div>
+                    <div className="px-5 py-4 space-y-2.5">
+                      <div>
+                        <p className="text-sm font-medium mb-0.5 leading-tight" style={{color: '#1F2937'}}>
+                          {language === 'zh' ? caseItem.feature1_title_zh : caseItem.feature1_title_en}
+                        </p>
+                        <p className="text-xs leading-snug" style={{color: '#6B7280'}}>
+                          {language === 'zh' ? caseItem.feature1_desc_zh : caseItem.feature1_desc_en}
+                        </p>
+                      </div>
 
-                        <div>
-                          <p className="text-sm font-medium mb-1" style={{color: '#1F2937'}}>
-                            {language === 'zh' ? caseItem.feature2_title_zh : caseItem.feature2_title_en}
-                          </p>
-                          <p className="text-xs" style={{color: '#6B7280'}}>
-                            {language === 'zh' ? caseItem.feature2_desc_zh : caseItem.feature2_desc_en}
-                          </p>
-                        </div>
+                      <div>
+                        <p className="text-sm font-medium mb-0.5 leading-tight" style={{color: '#1F2937'}}>
+                          {language === 'zh' ? caseItem.feature2_title_zh : caseItem.feature2_title_en}
+                        </p>
+                        <p className="text-xs leading-snug" style={{color: '#6B7280'}}>
+                          {language === 'zh' ? caseItem.feature2_desc_zh : caseItem.feature2_desc_en}
+                        </p>
+                      </div>
 
-                        <div>
-                          <p className="text-sm font-medium mb-1" style={{color: '#1F2937'}}>
-                            {language === 'zh' ? caseItem.feature3_title_zh : caseItem.feature3_title_en}
-                          </p>
-                          <p className="text-xs" style={{color: '#6B7280'}}>
-                            {language === 'zh' ? caseItem.feature3_desc_zh : caseItem.feature3_desc_en}
-                          </p>
-                        </div>
+                      <div>
+                        <p className="text-sm font-medium mb-0.5 leading-tight" style={{color: '#1F2937'}}>
+                          {language === 'zh' ? caseItem.feature3_title_zh : caseItem.feature3_title_en}
+                        </p>
+                        <p className="text-xs leading-snug" style={{color: '#6B7280'}}>
+                          {language === 'zh' ? caseItem.feature3_desc_zh : caseItem.feature3_desc_en}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -1500,30 +1498,30 @@ function App() {
                     </div>
 
                     {/* Features list */}
-                    <div className="space-y-6">
+                    <div className="space-y-4">
                       <div className="text-center">
-                        <h3 className="text-lg font-normal mb-3" style={{color: '#1F1F1F'}}>
+                        <h3 className="text-base font-medium mb-1" style={{color: '#1F1F1F'}}>
                           {language === 'zh' ? caseItem.feature1_title_zh : caseItem.feature1_title_en}
                         </h3>
-                        <p className="text-xs leading-relaxed" style={{color: '#6B7280'}}>
+                        <p className="text-xs leading-snug" style={{color: '#6B7280'}}>
                           {language === 'zh' ? caseItem.feature1_desc_zh : caseItem.feature1_desc_en}
                         </p>
                       </div>
 
                       <div className="text-center">
-                        <h3 className="text-lg font-normal mb-3" style={{color: '#1F1F1F'}}>
+                        <h3 className="text-base font-medium mb-1" style={{color: '#1F1F1F'}}>
                           {language === 'zh' ? caseItem.feature2_title_zh : caseItem.feature2_title_en}
                         </h3>
-                        <p className="text-xs leading-relaxed" style={{color: '#6B7280'}}>
+                        <p className="text-xs leading-snug" style={{color: '#6B7280'}}>
                           {language === 'zh' ? caseItem.feature2_desc_zh : caseItem.feature2_desc_en}
                         </p>
                       </div>
 
                       <div className="text-center">
-                        <h3 className="text-lg font-normal mb-3" style={{color: '#1F1F1F'}}>
+                        <h3 className="text-base font-medium mb-1" style={{color: '#1F1F1F'}}>
                           {language === 'zh' ? caseItem.feature3_title_zh : caseItem.feature3_title_en}
                         </h3>
-                        <p className="text-xs leading-relaxed" style={{color: '#6B7280'}}>
+                        <p className="text-xs leading-snug" style={{color: '#6B7280'}}>
                           {language === 'zh' ? caseItem.feature3_desc_zh : caseItem.feature3_desc_en}
                         </p>
                       </div>
