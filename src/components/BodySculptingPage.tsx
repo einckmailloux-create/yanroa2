@@ -6,6 +6,7 @@ import Footer from './Footer';
 import Navbar from './Navbar';
 import WhyYanoraSection from './WhyYanoraSection';
 import { supabase } from '../lib/supabase';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface DetailedCase {
   id: string;
@@ -21,6 +22,7 @@ interface DetailedCase {
 
 function BodySculptingPage() {
   const navigate = useNavigate();
+  const { t, language } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [activeService, setActiveService] = useState<'waist' | 'breast' | 'liposuction' | 'abdomen' | 'buttocks' | 'thigh'>('waist');
   const [detailedCases, setDetailedCases] = useState<DetailedCase[]>([]);
@@ -33,111 +35,51 @@ function BodySculptingPage() {
   ];
 
   const services = [
-    { key: 'waist' as const, title: '直角腰', subtitle: '打造完美腰线' },
-    { key: 'breast' as const, title: '隆胸', subtitle: '自然饱满胸型' },
-    { key: 'liposuction' as const, title: '吸脂塑形', subtitle: '精准去除脂肪' },
-    { key: 'abdomen' as const, title: '腹部塑形', subtitle: '平坦紧致腹部' },
-    { key: 'buttocks' as const, title: '臀部提升', subtitle: '塑造完美臀型' },
-    { key: 'thigh' as const, title: '大腿塑形', subtitle: '改善腿部线条' },
+    { key: 'waist' as const, title: t('bodySculpting.services.waist.title'), subtitle: t('bodySculpting.services.waist.desc') },
+    { key: 'breast' as const, title: t('bodySculpting.services.breast.title'), subtitle: t('bodySculpting.services.breast.desc') },
+    { key: 'liposuction' as const, title: t('bodySculpting.services.liposuction.title'), subtitle: t('bodySculpting.services.liposuction.desc') },
+    { key: 'abdomen' as const, title: t('bodySculpting.services.abdomen.title'), subtitle: t('bodySculpting.services.abdomen.desc') },
+    { key: 'buttocks' as const, title: t('bodySculpting.services.buttocks.title'), subtitle: t('bodySculpting.services.buttocks.desc') },
+    { key: 'thigh' as const, title: t('bodySculpting.services.thigh.title'), subtitle: t('bodySculpting.services.thigh.desc') },
   ];
 
-  const serviceDetails = {
-    waist: {
-      title: '直角腰塑形',
-      description: '通过精准吸脂与肌肉塑形，打造90度完美腰臀比例',
-      techniques: [
-        '腰部360度环形吸脂',
-        '后腰凹陷塑造',
-        '侧腰线条雕刻',
-        '腰臀比例黄金设计'
-      ],
-      images: [
+  const getServiceDetails = (serviceKey: typeof activeService) => {
+    return {
+      title: t(`bodySculpting.details.${serviceKey}.title`),
+      description: t(`bodySculpting.details.${serviceKey}.desc`),
+      techniques: t(`bodySculpting.details.${serviceKey}.techniques`) as string[],
+      images: serviceKey === 'waist' ? [
         '/Gemini_Generated_Image_94iwds94iwds94iw.png',
         '/Gemini_Generated_Image_iubeodiubeodiube.png',
         '/Gemini_Generated_Image_u1lac1u1lac1u1la.png',
         '/Gemini_Generated_Image_fv9uk0fv9uk0fv9u.png'
-      ]
-    },
-    breast: {
-      title: '隆胸手术',
-      description: '采用多种技术方案，量身定制自然饱满的胸型',
-      techniques: [
-        '假体隆胸 - 硅胶/盐水',
-        '自体脂肪隆胸',
-        '复合隆胸技术',
-        '个性化形态设计'
-      ],
-      images: [
+      ] : serviceKey === 'breast' ? [
         '/Gemini_Generated_Image_lv6nndlv6nndlv6n.png',
         '/Gemini_Generated_Image_pf7kappf7kappf7k.png',
         '/Gemini_Generated_Image_qvpx6jqvpx6jqvpx.png',
         '/Gemini_Generated_Image_a16ssqa16ssqa16s.png'
-      ]
-    },
-    liposuction: {
-      title: '吸脂塑形',
-      description: '精准去除顽固脂肪，雕刻理想身材曲线',
-      techniques: [
-        '超声波吸脂',
-        '水动力吸脂',
-        '激光溶脂',
-        '多部位综合塑形'
-      ],
-      images: [
+      ] : serviceKey === 'liposuction' ? [
         '/Gemini_Generated_Image_u1lac1u1lac1u1la.png',
         '/Gemini_Generated_Image_94iwds94iwds94iw.png',
         '/Gemini_Generated_Image_iubeodiubeodiube.png',
         '/Gemini_Generated_Image_fv9uk0fv9uk0fv9u.png'
-      ]
-    },
-    abdomen: {
-      title: '腹部塑形',
-      description: '打造平坦紧致的腹部线条',
-      techniques: [
-        '腹部吸脂',
-        '腹壁成型',
-        '马甲线雕刻',
-        '腹部皮肤收紧'
-      ],
-      images: [
+      ] : serviceKey === 'abdomen' ? [
         '/Gemini_Generated_Image_pf7kappf7kappf7k.png',
         '/Gemini_Generated_Image_lv6nndlv6nndlv6n.png',
         '/Gemini_Generated_Image_a16ssqa16ssqa16s.png',
         '/Gemini_Generated_Image_qvpx6jqvpx6jqvpx.png'
-      ]
-    },
-    buttocks: {
-      title: '臀部提升',
-      description: '塑造挺翘饱满的完美臀型',
-      techniques: [
-        '臀部填充',
-        '臀部提升',
-        '臀部吸脂',
-        'S曲线塑造'
-      ],
-      images: [
+      ] : serviceKey === 'buttocks' ? [
         '/Gemini_Generated_Image_fv9uk0fv9uk0fv9u.png',
         '/Gemini_Generated_Image_u1lac1u1lac1u1la.png',
         '/Gemini_Generated_Image_94iwds94iwds94iw.png',
         '/Gemini_Generated_Image_iubeodiubeodiube.png'
-      ]
-    },
-    thigh: {
-      title: '大腿塑形',
-      description: '改善腿部线条，塑造纤细修长美腿',
-      techniques: [
-        '大腿吸脂',
-        '膝盖周围塑形',
-        '小腿肌肉缩小',
-        '腿部线条雕刻'
-      ],
-      images: [
+      ] : [
         '/Gemini_Generated_Image_a16ssqa16ssqa16s.png',
         '/Gemini_Generated_Image_qvpx6jqvpx6jqvpx.png',
         '/Gemini_Generated_Image_lv6nndlv6nndlv6n.png',
         '/Gemini_Generated_Image_pf7kappf7kappf7k.png'
       ]
-    }
+    };
   };
 
   // Fetch detailed cases from database
@@ -167,15 +109,14 @@ function BodySculptingPage() {
     <div className="min-h-screen bg-white">
       <Navbar />
 
-      {/* Hero Section */}
       <section className="py-16 md:py-24 px-6 md:px-12 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-3xl md:text-4xl font-light mb-6 tracking-wide" style={{color: '#1F1F1F'}}>
-              身体塑形
+              {t('bodySculpting.hero.title')}
             </h1>
             <p className="text-base md:text-lg mb-8 leading-relaxed" style={{color: '#6B7280'}}>
-              科学塑形方案，打造理想身材曲线
+              {t('bodySculpting.hero.subtitle')}
             </p>
             <button
               onClick={() => navigate('/booking')}
@@ -184,15 +125,14 @@ function BodySculptingPage() {
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#101D29'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#1C2B3A'}
             >
-              现在开始探索
+              {t('bodySculpting.hero.cta')}
             </button>
           </div>
 
-          {/* Desktop view - 3 images side by side */}
           <div className="hidden md:flex items-end justify-center gap-0 mb-16">
             <img
               src="/Gemini_Generated_Image_94iwds94iwds94iw.png"
-              alt="身体塑形示例1"
+              alt={`${t('bodySculpting.hero.title')} 1`}
               className="h-[500px] object-contain"
               style={{
                 filter: 'brightness(1.1) contrast(1.05)',
@@ -201,7 +141,7 @@ function BodySculptingPage() {
             />
             <img
               src="/Gemini_Generated_Image_iubeodiubeodiube.png"
-              alt="身体塑形示例2"
+              alt={`${t('bodySculpting.hero.title')} 2`}
               className="h-[500px] object-contain"
               style={{
                 filter: 'brightness(1.1) contrast(1.05)',
@@ -210,7 +150,7 @@ function BodySculptingPage() {
             />
             <img
               src="/Gemini_Generated_Image_u1lac1u1lac1u1la.png"
-              alt="身体塑形示例3"
+              alt={`${t('bodySculpting.hero.title')} 3`}
               className="h-[500px] object-contain"
               style={{
                 filter: 'brightness(1.1) contrast(1.05)',
@@ -219,7 +159,6 @@ function BodySculptingPage() {
             />
           </div>
 
-          {/* Mobile view - swipeable carousel */}
           <div className="md:hidden mb-12">
             <div className="relative overflow-hidden">
               <div
@@ -253,7 +192,7 @@ function BodySculptingPage() {
                   <div key={index} className="w-full flex-shrink-0 flex justify-center items-center px-4">
                     <img
                       src={src}
-                      alt={`身体塑形示例${index + 1}`}
+                      alt={`${t('bodySculpting.hero.title')} ${index + 1}`}
                       className="w-full max-w-md object-contain"
                       style={{
                         filter: 'brightness(1.1) contrast(1.05)',
@@ -266,7 +205,6 @@ function BodySculptingPage() {
               </div>
             </div>
 
-            {/* Dots indicator */}
             <div className="flex justify-center gap-2 mt-6">
               {images.map((_, index) => (
                 <button
@@ -276,7 +214,7 @@ function BodySculptingPage() {
                   style={{
                     backgroundColor: currentSlide === index ? '#1F1F1F' : '#D1D5DB'
                   }}
-                  aria-label={`切换到图片 ${index + 1}`}
+                  aria-label={`${t('bodySculpting.hero.title')} ${index + 1}`}
                 />
               ))}
             </div>
@@ -284,15 +222,14 @@ function BodySculptingPage() {
         </div>
       </section>
 
-      {/* Services Section */}
       <section className="py-20 md:py-28 px-6 md:px-12 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16 text-center">
             <h2 className="text-2xl md:text-3xl font-light mb-4 tracking-wide" style={{color: '#1F1F1F'}}>
-              服务项目
+              {t('bodySculpting.services.title')}
             </h2>
             <p className="text-sm md:text-base font-light" style={{color: '#6B7280'}}>
-              专业塑形技术，为你量身定制理想身材
+              {t('bodySculpting.services.subtitle')}
             </p>
           </div>
 
@@ -331,17 +268,16 @@ function BodySculptingPage() {
             ))}
           </div>
 
-          {/* Service Details */}
           <div className="bg-gray-50 p-8 md:p-12 border" style={{borderColor: '#E5E7EB'}}>
             <div className="max-w-4xl mx-auto">
               <h3 className="text-xl md:text-2xl font-light mb-4" style={{color: '#1F1F1F'}}>
-                {serviceDetails[activeService].title}
+                {getServiceDetails(activeService).title}
               </h3>
               <p className="text-sm md:text-base mb-8 leading-relaxed" style={{color: '#6B7280'}}>
-                {serviceDetails[activeService].description}
+                {getServiceDetails(activeService).description}
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {serviceDetails[activeService].techniques.map((technique, index) => (
+                {getServiceDetails(activeService).techniques.map((technique, index) => (
                   <div
                     key={index}
                     className="flex items-start gap-3 p-4 bg-white border"
@@ -355,11 +291,10 @@ function BodySculptingPage() {
             </div>
           </div>
 
-          {/* Images Section */}
           <div className="bg-white p-8 md:p-12 border mt-8" style={{borderColor: '#E5E7EB'}}>
             <div className="max-w-6xl mx-auto">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {serviceDetails[activeService].images.map((image, index) => (
+                {getServiceDetails(activeService).images.map((image, index) => (
                   <div
                     key={index}
                     className="bg-gray-50 border overflow-hidden"
@@ -367,7 +302,7 @@ function BodySculptingPage() {
                   >
                     <img
                       src={image}
-                      alt={`${serviceDetails[activeService].title} 案例 ${index + 1}`}
+                      alt={`${getServiceDetails(activeService).title} ${index + 1}`}
                       className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
                     />
                   </div>
@@ -378,25 +313,24 @@ function BodySculptingPage() {
         </div>
       </section>
 
-      {/* Case Studies Section */}
       <section className="py-20 md:py-28 px-6 md:px-12 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16 text-center">
             <h2 className="text-2xl md:text-3xl font-light mb-4 tracking-wide" style={{color: '#1F1F1F'}}>
-              真实案例
+              {t('bodySculpting.cases.title')}
             </h2>
             <p className="text-sm md:text-base font-light" style={{color: '#6B7280'}}>
-              见证专业技术带来的美丽蜕变
+              {t('bodySculpting.cases.subtitle')}
             </p>
           </div>
 
           {loading ? (
             <div className="text-center py-12">
-              <p className="text-base" style={{color: '#6B7280'}}>加载中...</p>
+              <p className="text-base" style={{color: '#6B7280'}}>{t('bodySculpting.cases.loading')}</p>
             </div>
           ) : detailedCases.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-base" style={{color: '#6B7280'}}>暂无案例</p>
+              <p className="text-base" style={{color: '#6B7280'}}>{t('bodySculpting.cases.empty')}</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
@@ -406,30 +340,30 @@ function BodySculptingPage() {
                     <div className="relative aspect-[3/4]">
                       <img
                         src={caseStudy.before_image_url}
-                        alt={`${caseStudy.title} - 术前`}
+                        alt={`${language === 'zh' ? caseStudy.title : caseStudy.title_en} - ${t('bodySculpting.cases.before')}`}
                         className="w-full h-full object-cover"
                       />
                       <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white text-center py-2 text-sm md:text-base font-light">
-                        术前
+                        {t('bodySculpting.cases.before')}
                       </div>
                     </div>
                     <div className="relative aspect-[3/4]">
                       <img
                         src={caseStudy.after_image_url}
-                        alt={`${caseStudy.title} - 术后`}
+                        alt={`${language === 'zh' ? caseStudy.title : caseStudy.title_en} - ${t('bodySculpting.cases.after')}`}
                         className="w-full h-full object-cover"
                       />
                       <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white text-center py-2 text-sm md:text-base font-light">
-                        术后
+                        {t('bodySculpting.cases.after')}
                       </div>
                     </div>
                   </div>
                   <div className="p-4 md:p-6 lg:p-8">
                     <h3 className="text-base md:text-lg lg:text-xl font-light mb-2 md:mb-3" style={{color: '#1F1F1F'}}>
-                      {caseStudy.title}
+                      {language === 'zh' ? caseStudy.title : caseStudy.title_en}
                     </h3>
                     <p className="text-xs md:text-sm lg:text-base leading-relaxed" style={{color: '#6B7280'}}>
-                      {caseStudy.description}
+                      {language === 'zh' ? caseStudy.description : caseStudy.description_en}
                     </p>
                   </div>
                 </div>
