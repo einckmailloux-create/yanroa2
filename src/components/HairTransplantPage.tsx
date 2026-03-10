@@ -9,8 +9,56 @@ import { useLanguage } from '../contexts/LanguageContext';
 
 function HairTransplantPage() {
   const navigate = useNavigate();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [activeService, setActiveService] = useState<'fue' | 'hairline' | 'eyebrow' | 'beard'>('fue');
+
+  const translations = language === 'zh' ? {
+    tier1Methods: [
+      { title: '营养补充', desc: '均衡饮食，补充蛋白质、维生素和微量元素' },
+      { title: '压力管理', desc: '保证充足睡眠，减少焦虑和精神压力' },
+    ],
+    tier2Methods: [
+      { title: '外用药物', desc: '局部刺激毛囊生长，改善头皮血液循环' },
+      { title: '口服药物', desc: '抑制DHT生成，延缓脱发进程' },
+    ],
+    tier3Methods: [
+      { title: 'FUE技术', desc: '单个毛囊提取种植，无痕迹，恢复快' },
+      { title: 'FUT技术', desc: '条状取发，适合大面积脱发' },
+    ],
+    scenarios: [
+      { condition: '急性短期脱发（如产后、压力大）', solution: '首选第一层，通常可自愈。' },
+      { condition: '慢性进行性脱发（如雄激素性脱发）', solution: '早期以第二层为主，若效果不佳再考虑第三层。' },
+      { condition: '毛囊未坏死', solution: '可采用第二层药物治疗。' },
+      { condition: '毛囊已坏死', solution: '只能靠第三层手术解决。' },
+    ],
+    fueFeatures: ['适合大面积脱发', '毛囊存活率高达95%以上', '术后3-5天即可正常工作', '无痕迹自然美观'],
+    hairlineFeatures: ['个性化设计方案', '符合面部美学比例', '显年轻，提升颜值', '精准种植自然流畅'],
+    eyebrowFeatures: ['根据脸型设计眉形', '一根一根精细种植', '永久保持，无需化妆', '立体自然眉形'],
+    beardFeatures: ['多种胡型可选', '生长方向精确控制', '增强男性魅力', '自然浓密效果'],
+  } : {
+    tier1Methods: [
+      { title: 'Nutritional Supplementation', desc: 'Balanced diet, supplement protein, vitamins, and trace elements' },
+      { title: 'Stress Management', desc: 'Ensure adequate sleep, reduce anxiety and mental stress' },
+    ],
+    tier2Methods: [
+      { title: 'Topical Medications', desc: 'Locally stimulate hair follicle growth, improve scalp blood circulation' },
+      { title: 'Oral Medications', desc: 'Inhibit DHT production, delay hair loss progression' },
+    ],
+    tier3Methods: [
+      { title: 'FUE Technique', desc: 'Individual follicle extraction and planting, no trace, fast recovery' },
+      { title: 'FUT Technique', desc: 'Strip harvesting, suitable for large-area hair loss' },
+    ],
+    scenarios: [
+      { condition: 'Acute short-term hair loss (such as postpartum, stress)', solution: 'First choice is tier one, usually self-healing.' },
+      { condition: 'Chronic progressive hair loss (such as androgenetic alopecia)', solution: 'Early focus on tier two, consider tier three if ineffective.' },
+      { condition: 'Hair follicles not necrotic', solution: 'Can use tier two medication treatment.' },
+      { condition: 'Hair follicles necrotic', solution: 'Can only be solved by tier three surgery.' },
+    ],
+    fueFeatures: ['Suitable for large-area hair loss', 'Follicle survival rate up to 95%+', 'Resume normal work in 3-5 days post-op', 'No trace, natural & beautiful'],
+    hairlineFeatures: ['Personalized design plan', 'Conforms to facial aesthetic proportions', 'Look younger, enhance appearance', 'Precise planting, natural & smooth'],
+    eyebrowFeatures: ['Design eyebrow shape according to face shape', 'Fine planting one by one', 'Permanent retention, no makeup needed', '3D natural eyebrow shape'],
+    beardFeatures: ['Multiple beard styles available', 'Precise control of growth direction', 'Enhance masculine charm', 'Natural & thick effect'],
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -179,14 +227,12 @@ function HairTransplantPage() {
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ml-16">
-                <div className="p-4" style={{backgroundColor: '#F9FAFB'}}>
-                  <h4 className="text-base font-normal mb-2" style={{color: '#1F1F1F'}}>{t('hairTransplant.treatment.tier1.methods[0].title')}</h4>
-                  <p className="text-sm" style={{color: '#6B7280'}}>{t('hairTransplant.treatment.tier1.methods[0].desc')}</p>
-                </div>
-                <div className="p-4" style={{backgroundColor: '#F9FAFB'}}>
-                  <h4 className="text-base font-normal mb-2" style={{color: '#1F1F1F'}}>{t('hairTransplant.treatment.tier1.methods[1].title')}</h4>
-                  <p className="text-sm" style={{color: '#6B7280'}}>{t('hairTransplant.treatment.tier1.methods[1].desc')}</p>
-                </div>
+                {translations.tier1Methods.map((method, index) => (
+                  <div key={index} className="p-4" style={{backgroundColor: '#F9FAFB'}}>
+                    <h4 className="text-base font-normal mb-2" style={{color: '#1F1F1F'}}>{method.title}</h4>
+                    <p className="text-sm" style={{color: '#6B7280'}}>{method.desc}</p>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -205,14 +251,12 @@ function HairTransplantPage() {
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ml-16">
-                <div className="p-4" style={{backgroundColor: '#F9FAFB'}}>
-                  <h4 className="text-base font-normal mb-2" style={{color: '#1F1F1F'}}>{t('hairTransplant.treatment.tier2.methods[0].title')}</h4>
-                  <p className="text-sm" style={{color: '#6B7280'}}>{t('hairTransplant.treatment.tier2.methods[0].desc')}</p>
-                </div>
-                <div className="p-4" style={{backgroundColor: '#F9FAFB'}}>
-                  <h4 className="text-base font-normal mb-2" style={{color: '#1F1F1F'}}>{t('hairTransplant.treatment.tier2.methods[1].title')}</h4>
-                  <p className="text-sm" style={{color: '#6B7280'}}>{t('hairTransplant.treatment.tier2.methods[1].desc')}</p>
-                </div>
+                {translations.tier2Methods.map((method, index) => (
+                  <div key={index} className="p-4" style={{backgroundColor: '#F9FAFB'}}>
+                    <h4 className="text-base font-normal mb-2" style={{color: '#1F1F1F'}}>{method.title}</h4>
+                    <p className="text-sm" style={{color: '#6B7280'}}>{method.desc}</p>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -231,14 +275,12 @@ function HairTransplantPage() {
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ml-16">
-                <div className="p-4" style={{backgroundColor: '#F9FAFB'}}>
-                  <h4 className="text-base font-normal mb-2" style={{color: '#1F1F1F'}}>{t('hairTransplant.treatment.tier3.methods[0].title')}</h4>
-                  <p className="text-sm" style={{color: '#6B7280'}}>{t('hairTransplant.treatment.tier3.methods[0].desc')}</p>
-                </div>
-                <div className="p-4" style={{backgroundColor: '#F9FAFB'}}>
-                  <h4 className="text-base font-normal mb-2" style={{color: '#1F1F1F'}}>{t('hairTransplant.treatment.tier3.methods[1].title')}</h4>
-                  <p className="text-sm" style={{color: '#6B7280'}}>{t('hairTransplant.treatment.tier3.methods[1].desc')}</p>
-                </div>
+                {translations.tier3Methods.map((method, index) => (
+                  <div key={index} className="p-4" style={{backgroundColor: '#F9FAFB'}}>
+                    <h4 className="text-base font-normal mb-2" style={{color: '#1F1F1F'}}>{method.title}</h4>
+                    <p className="text-sm" style={{color: '#6B7280'}}>{method.desc}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -274,38 +316,16 @@ function HairTransplantPage() {
                 <div className="flex-1">
                   <h3 className="text-lg font-normal mb-4" style={{color: '#1F1F1F'}}>{t('hairTransplant.treatment.step2')}</h3>
                   <div className="space-y-4">
-                    <div className="pl-4 border-l-2" style={{borderColor: '#D1D5DB'}}>
-                      <p className="text-sm font-normal mb-1" style={{color: '#1F1F1F'}}>
-                        {t('hairTransplant.treatment.scenarios[0].condition')}
-                      </p>
-                      <p className="text-sm" style={{color: '#6B7280'}}>
-                        {t('hairTransplant.treatment.scenarios[0].solution')}
-                      </p>
-                    </div>
-                    <div className="pl-4 border-l-2" style={{borderColor: '#D1D5DB'}}>
-                      <p className="text-sm font-normal mb-1" style={{color: '#1F1F1F'}}>
-                        {t('hairTransplant.treatment.scenarios[1].condition')}
-                      </p>
-                      <p className="text-sm" style={{color: '#6B7280'}}>
-                        {t('hairTransplant.treatment.scenarios[1].solution')}
-                      </p>
-                    </div>
-                    <div className="pl-4 border-l-2" style={{borderColor: '#D1D5DB'}}>
-                      <p className="text-sm font-normal mb-1" style={{color: '#1F1F1F'}}>
-                        {t('hairTransplant.treatment.scenarios[2].condition')}
-                      </p>
-                      <p className="text-sm" style={{color: '#6B7280'}}>
-                        {t('hairTransplant.treatment.scenarios[2].solution')}
-                      </p>
-                    </div>
-                    <div className="pl-4 border-l-2" style={{borderColor: '#D1D5DB'}}>
-                      <p className="text-sm font-normal mb-1" style={{color: '#1F1F1F'}}>
-                        {t('hairTransplant.treatment.scenarios[3].condition')}
-                      </p>
-                      <p className="text-sm" style={{color: '#6B7280'}}>
-                        {t('hairTransplant.treatment.scenarios[3].solution')}
-                      </p>
-                    </div>
+                    {translations.scenarios.map((scenario, index) => (
+                      <div key={index} className="pl-4 border-l-2" style={{borderColor: '#D1D5DB'}}>
+                        <p className="text-sm font-normal mb-1" style={{color: '#1F1F1F'}}>
+                          {scenario.condition}
+                        </p>
+                        <p className="text-sm" style={{color: '#6B7280'}}>
+                          {scenario.solution}
+                        </p>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -381,12 +401,7 @@ function HairTransplantPage() {
                 {activeService === 'beard' && t('hairTransplant.details.beard.desc')}
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {activeService === 'fue' && [
-                  t('hairTransplant.details.fue.features[0]'),
-                  t('hairTransplant.details.fue.features[1]'),
-                  t('hairTransplant.details.fue.features[2]'),
-                  t('hairTransplant.details.fue.features[3]')
-                ].map((feature, index) => (
+                {activeService === 'fue' && translations.fueFeatures.map((feature, index) => (
                   <div
                     key={index}
                     className="flex items-start gap-3 p-4 bg-white border"
@@ -396,12 +411,7 @@ function HairTransplantPage() {
                     <span className="text-sm md:text-base" style={{color: '#4B5563'}}>{feature}</span>
                   </div>
                 ))}
-                {activeService === 'hairline' && [
-                  t('hairTransplant.details.hairline.features[0]'),
-                  t('hairTransplant.details.hairline.features[1]'),
-                  t('hairTransplant.details.hairline.features[2]'),
-                  t('hairTransplant.details.hairline.features[3]')
-                ].map((feature, index) => (
+                {activeService === 'hairline' && translations.hairlineFeatures.map((feature, index) => (
                   <div
                     key={index}
                     className="flex items-start gap-3 p-4 bg-white border"
@@ -411,12 +421,7 @@ function HairTransplantPage() {
                     <span className="text-sm md:text-base" style={{color: '#4B5563'}}>{feature}</span>
                   </div>
                 ))}
-                {activeService === 'eyebrow' && [
-                  t('hairTransplant.details.eyebrow.features[0]'),
-                  t('hairTransplant.details.eyebrow.features[1]'),
-                  t('hairTransplant.details.eyebrow.features[2]'),
-                  t('hairTransplant.details.eyebrow.features[3]')
-                ].map((feature, index) => (
+                {activeService === 'eyebrow' && translations.eyebrowFeatures.map((feature, index) => (
                   <div
                     key={index}
                     className="flex items-start gap-3 p-4 bg-white border"
@@ -426,12 +431,7 @@ function HairTransplantPage() {
                     <span className="text-sm md:text-base" style={{color: '#4B5563'}}>{feature}</span>
                   </div>
                 ))}
-                {activeService === 'beard' && [
-                  t('hairTransplant.details.beard.features[0]'),
-                  t('hairTransplant.details.beard.features[1]'),
-                  t('hairTransplant.details.beard.features[2]'),
-                  t('hairTransplant.details.beard.features[3]')
-                ].map((feature, index) => (
+                {activeService === 'beard' && translations.beardFeatures.map((feature, index) => (
                   <div
                     key={index}
                     className="flex items-start gap-3 p-4 bg-white border"
