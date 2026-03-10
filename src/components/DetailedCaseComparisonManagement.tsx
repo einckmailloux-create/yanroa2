@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
-import { Upload, Plus, Edit2, Trash2, Save, X } from 'lucide-react';
+import { Upload, Plus, CreditCard as Edit2, Trash2, Save, X } from 'lucide-react';
 
 interface DetailedCaseComparison {
   id: string;
