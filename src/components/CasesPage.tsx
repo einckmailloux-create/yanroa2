@@ -4,7 +4,6 @@ import { supabase } from '../lib/supabase';
 import { useLanguage } from '../contexts/LanguageContext';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import ImageCompareSlider from './ImageCompareSlider';
 import CTASection from './CTASection';
 
 interface DetailedCase {
@@ -129,24 +128,39 @@ function CasesPage() {
               {filteredCases.map((caseItem) => (
                 <div
                   key={caseItem.id}
-                  className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+                  className="bg-white overflow-hidden"
+                  style={{border: '2px solid #E5E7EB'}}
                 >
-                  <div className="aspect-[4/3] relative">
-                    <ImageCompareSlider
-                      beforeImage={caseItem.before_image_url}
-                      afterImage={caseItem.after_image_url}
-                      beforeLabel={language === 'zh' ? '术前' : 'Before'}
-                      afterLabel={language === 'zh' ? '术后' : 'After'}
-                      initialPosition={50}
-                    />
+                  {/* Before and After Images Side by Side */}
+                  <div className="grid grid-cols-2 gap-0">
+                    <div className="relative aspect-[3/4] overflow-hidden">
+                      <img
+                        src={caseItem.before_image_url}
+                        alt={language === 'zh' ? '术前' : 'Before'}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute top-3 left-3 px-2 py-1 text-xs font-medium text-white" style={{backgroundColor: 'rgba(0, 0, 0, 0.6)'}}>
+                        {language === 'zh' ? '术前' : 'Before'}
+                      </div>
+                    </div>
+                    <div className="relative aspect-[3/4] overflow-hidden">
+                      <img
+                        src={caseItem.after_image_url}
+                        alt={language === 'zh' ? '术后' : 'After'}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute top-3 left-3 px-2 py-1 text-xs font-medium text-white" style={{backgroundColor: 'rgba(0, 0, 0, 0.6)'}}>
+                        {language === 'zh' ? '术后' : 'After'}
+                      </div>
+                    </div>
                   </div>
 
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2 text-gray-900">
+                  <div className="px-5 py-4">
+                    <h3 className="text-lg font-medium mb-2" style={{color: '#1F2937'}}>
                       {language === 'zh' ? caseItem.title : caseItem.title_en}
                     </h3>
                     {((language === 'zh' ? caseItem.description : caseItem.description_en)) && (
-                      <p className="text-gray-600 text-sm line-clamp-3">
+                      <p className="text-sm line-clamp-3 leading-relaxed" style={{color: '#6B7280'}}>
                         {language === 'zh' ? caseItem.description : caseItem.description_en}
                       </p>
                     )}
