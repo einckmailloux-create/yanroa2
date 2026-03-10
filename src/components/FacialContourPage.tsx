@@ -7,16 +7,18 @@ import ImageCompareSlider from './ImageCompareSlider';
 import CTASection from './CTASection';
 import ServiceCasesSection from './ServiceCasesSection';
 import WhyYanoraSection from './WhyYanoraSection';
+import { useLanguage } from '../contexts/LanguageContext';
 
 function FacialContourPage() {
   const navigate = useNavigate();
+  const { t } = useLanguage();
   const [activeFeature, setActiveFeature] = useState<'nose' | 'eyes' | 'lips'>('nose');
 
   const noseTypes = [
-    { id: 1, name: '直鼻', description: '气质干练', image: '🖼️' },
-    { id: 2, name: '微翘鼻', description: '柔和甜美', image: '🖼️' },
-    { id: 3, name: '盒鼻', description: '混血立体', image: '🖼️' },
-    { id: 4, name: '水滴鼻', description: '自然圆润', image: '🖼️' },
+    { id: 1, name: t('facialContour.features.noseTypes.straight.name'), description: t('facialContour.features.noseTypes.straight.desc'), image: '🖼️' },
+    { id: 2, name: t('facialContour.features.noseTypes.upturned.name'), description: t('facialContour.features.noseTypes.upturned.desc'), image: '🖼️' },
+    { id: 3, name: t('facialContour.features.noseTypes.box.name'), description: t('facialContour.features.noseTypes.box.desc'), image: '🖼️' },
+    { id: 4, name: t('facialContour.features.noseTypes.droplet.name'), description: t('facialContour.features.noseTypes.droplet.desc'), image: '🖼️' },
   ];
 
   const eyeTypes = [
@@ -42,22 +44,22 @@ function FacialContourPage() {
   const cases = [
     {
       id: 1,
-      parts: '颧骨 + 下巴',
-      description: '利用颧骨内推和颏成型术式改善面部轮廓流畅度，打造柔和的面部线条',
+      parts: t('facialContour.cases[0].parts'),
+      description: t('facialContour.cases[0].desc'),
       before: '🖼️',
       after: '🖼️'
     },
     {
       id: 2,
-      parts: '鼻子 + 眼睛',
-      description: '综合鼻综合和双眼皮手术，提升五官精致度与面部协调性',
+      parts: t('facialContour.cases[1].parts'),
+      description: t('facialContour.cases[1].desc'),
       before: '🖼️',
       after: '🖼️'
     },
     {
       id: 3,
-      parts: '下颌线',
-      description: '通过下颌角截骨改善方形脸，塑造流畅的下颌线条',
+      parts: t('facialContour.cases[2].parts'),
+      description: t('facialContour.cases[2].desc'),
       before: '🖼️',
       after: '🖼️'
     },
@@ -70,10 +72,10 @@ function FacialContourPage() {
       <section className="py-16 md:py-20 px-6 md:px-12 bg-white md:bg-[#FAFAFA]">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-3xl md:text-5xl font-light mb-6 leading-relaxed tracking-wide" style={{color: '#1F1F1F'}}>
-            面部轮廓重塑
+            {t('facialContour.hero.title')}
           </h1>
-          <p className="text-sm md:text-base font-light leading-relaxed mb-8 max-w-2xl mx-auto" style={{color: '#4B5563'}}>
-            我们根据不同人种的面部结构和骨架特征，<br />结合个人审美偏好，科学地提供个性化整形解决方案。
+          <p className="text-sm md:text-base font-light leading-relaxed mb-8 max-w-2xl mx-auto whitespace-pre-line" style={{color: '#4B5563'}}>
+            {t('facialContour.hero.subtitle')}
           </p>
           <button
             onClick={() => navigate('/booking')}
@@ -83,7 +85,7 @@ function FacialContourPage() {
               color: '#FFFFFF'
             }}
           >
-            现在开始探索
+            {t('facialContour.hero.cta')}
           </button>
         </div>
       </section>
@@ -104,7 +106,7 @@ function FacialContourPage() {
                   }}
                 />
 
-                {/* 额头标注 - 左侧 */}
+                {/* {t('facialContour.anatomy.forehead')}标注 - 左侧 */}
                 <div className="absolute" style={{top: '18%', left: '10%'}}>
                   <div className="relative">
                     {/* 点 - 桌面端显示 */}
@@ -122,7 +124,7 @@ function FacialContourPage() {
                         animation: 'floatUpDown 3s ease-in-out infinite'
                       }}
                     >
-                      <p className="text-sm font-light whitespace-nowrap" style={{color: '#1F1F1F'}}>额头</p>
+                      <p className="text-sm font-light whitespace-nowrap" style={{color: '#1F1F1F'}}>{t('facialContour.anatomy.forehead')}</p>
                     </div>
                     {/* 移动端标签 */}
                     <div
@@ -133,12 +135,12 @@ function FacialContourPage() {
                         animation: 'floatUpDown 3s ease-in-out infinite'
                       }}
                     >
-                      <p className="text-xs font-light whitespace-nowrap" style={{color: '#1F1F1F'}}>额头</p>
+                      <p className="text-xs font-light whitespace-nowrap" style={{color: '#1F1F1F'}}>{t('facialContour.anatomy.forehead')}</p>
                     </div>
                   </div>
                 </div>
 
-                {/* 颧骨标注 - 右侧 */}
+                {/* {t('facialContour.anatomy.cheekbone')}标注 - 右侧 */}
                 <div className="absolute" style={{top: '31%', right: '8%'}}>
                   <div className="relative">
                     {/* 点 - 桌面端显示 */}
@@ -156,7 +158,7 @@ function FacialContourPage() {
                         animation: 'floatUpDown 3s ease-in-out infinite 0.5s'
                       }}
                     >
-                      <p className="text-sm font-light whitespace-nowrap" style={{color: '#1F1F1F'}}>颧骨</p>
+                      <p className="text-sm font-light whitespace-nowrap" style={{color: '#1F1F1F'}}>{t('facialContour.anatomy.cheekbone')}</p>
                     </div>
                     {/* 移动端标签 */}
                     <div
@@ -167,12 +169,12 @@ function FacialContourPage() {
                         animation: 'floatUpDown 3s ease-in-out infinite 0.5s'
                       }}
                     >
-                      <p className="text-xs font-light whitespace-nowrap" style={{color: '#1F1F1F'}}>颧骨</p>
+                      <p className="text-xs font-light whitespace-nowrap" style={{color: '#1F1F1F'}}>{t('facialContour.anatomy.cheekbone')}</p>
                     </div>
                   </div>
                 </div>
 
-                {/* 下巴标注 - 左侧 */}
+                {/* {t('facialContour.anatomy.chin')}标注 - 左侧 */}
                 <div className="absolute" style={{top: '56%', left: '9%'}}>
                   <div className="relative">
                     {/* 点 - 桌面端显示 */}
@@ -190,7 +192,7 @@ function FacialContourPage() {
                         animation: 'floatUpDown 3s ease-in-out infinite 1s'
                       }}
                     >
-                      <p className="text-sm font-light whitespace-nowrap" style={{color: '#1F1F1F'}}>下巴</p>
+                      <p className="text-sm font-light whitespace-nowrap" style={{color: '#1F1F1F'}}>{t('facialContour.anatomy.chin')}</p>
                     </div>
                     {/* 移动端标签 */}
                     <div
@@ -201,12 +203,12 @@ function FacialContourPage() {
                         animation: 'floatUpDown 3s ease-in-out infinite 1s'
                       }}
                     >
-                      <p className="text-xs font-light whitespace-nowrap" style={{color: '#1F1F1F'}}>下巴</p>
+                      <p className="text-xs font-light whitespace-nowrap" style={{color: '#1F1F1F'}}>{t('facialContour.anatomy.chin')}</p>
                     </div>
                   </div>
                 </div>
 
-                {/* 下颌线标注 - 右侧 */}
+                {/* {t('facialContour.anatomy.jawline')}标注 - 右侧 */}
                 <div className="absolute" style={{top: '50%', right: '8%'}}>
                   <div className="relative">
                     {/* 点 - 桌面端显示 */}
@@ -224,7 +226,7 @@ function FacialContourPage() {
                         animation: 'floatUpDown 3s ease-in-out infinite 1.5s'
                       }}
                     >
-                      <p className="text-sm font-light whitespace-nowrap" style={{color: '#1F1F1F'}}>下颌线</p>
+                      <p className="text-sm font-light whitespace-nowrap" style={{color: '#1F1F1F'}}>{t('facialContour.anatomy.jawline')}</p>
                     </div>
                     {/* 移动端标签 */}
                     <div
@@ -235,7 +237,7 @@ function FacialContourPage() {
                         animation: 'floatUpDown 3s ease-in-out infinite 1.5s'
                       }}
                     >
-                      <p className="text-xs font-light whitespace-nowrap" style={{color: '#1F1F1F'}}>下颌线</p>
+                      <p className="text-xs font-light whitespace-nowrap" style={{color: '#1F1F1F'}}>{t('facialContour.anatomy.jawline')}</p>
                     </div>
                   </div>
                 </div>
@@ -245,10 +247,10 @@ function FacialContourPage() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {[
-              { icon: '□', title: '额头/眉骨', subtitle: '丰额头、眉弓抬高', image: '/e7cec26aded337066497967b20835027.jpg' },
-              { icon: '□', title: '颧骨', subtitle: '颧骨内推/降低', image: '/2fba6167d76a33f9a5630723c2c3ff27.jpg' },
-              { icon: '□', title: '下颌线', subtitle: '下颌角截骨、去咬肌', image: '/09b2817522388f1c085e42075a1fce19.jpg' },
-              { icon: '□', title: '下巴', subtitle: '颏成型、假体隆颏', image: '/58c5859c8fe00a0ad6887547be4c6fe0.jpg' },
+              { icon: '□', title: t('facialContour.services.forehead.title'), subtitle: t('facialContour.services.forehead.desc'), image: '/e7cec26aded337066497967b20835027.jpg' },
+              { icon: '□', title: t('facialContour.services.cheekbone.title'), subtitle: t('facialContour.services.cheekbone.desc'), image: '/2fba6167d76a33f9a5630723c2c3ff27.jpg' },
+              { icon: '□', title: t('facialContour.services.jawline.title'), subtitle: t('facialContour.services.jawline.desc'), image: '/09b2817522388f1c085e42075a1fce19.jpg' },
+              { icon: '□', title: t('facialContour.services.chin.title'), subtitle: t('facialContour.services.chin.desc'), image: '/58c5859c8fe00a0ad6887547be4c6fe0.jpg' },
             ].map((item, index) => (
               <div
                 key={index}
@@ -295,19 +297,19 @@ function FacialContourPage() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-16 text-center">
             <h2 className="text-2xl md:text-3xl font-light mb-4 tracking-wide" style={{color: '#1F1F1F'}}>
-              五官精雕板块
+              {t('facialContour.services.title')}
             </h2>
             <p className="text-sm md:text-base font-light" style={{color: '#6B7280'}}>
-              聚焦于五官局部的精细化调整
+              {t('facialContour.services.subtitle')}
             </p>
           </div>
 
           {/* Feature Tabs */}
           <div className="flex flex-wrap gap-3 md:gap-4 mb-12 justify-center">
             {[
-              { key: 'nose' as const, label: '鼻子' },
-              { key: 'eyes' as const, label: '眼睛' },
-              { key: 'lips' as const, label: '嘴巴' },
+              { key: 'nose' as const, label: t('facialContour.features.nose') },
+              { key: 'eyes' as const, label: t('facialContour.features.eyes') },
+              { key: 'lips' as const, label: t('facialContour.features.lips') },
             ].map((feature) => (
               <button
                 key={feature.key}
