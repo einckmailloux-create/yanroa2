@@ -106,7 +106,14 @@ function BodySculptingPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white relative">
+      {/* Mobile Watermark */}
+      <div className="md:hidden fixed bottom-6 right-6 z-10 pointer-events-none">
+        <span className="text-6xl font-light tracking-wider opacity-20" style={{color: '#1F1F1F'}}>
+          YANORA
+        </span>
+      </div>
+
       <Navbar />
 
       <section className="py-16 md:py-24 px-6 md:px-12 bg-gradient-to-b from-white to-gray-50">

@@ -63,7 +63,14 @@ export default function BookingSuccessPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white relative">
+      {/* Mobile Watermark */}
+      <div className="md:hidden fixed bottom-6 right-6 z-10 pointer-events-none">
+        <span className="text-6xl font-light tracking-wider opacity-20" style={{color: '#1F1F1F'}}>
+          YANORA
+        </span>
+      </div>
+
       <Navbar />
       <div className="max-w-3xl mx-auto px-4 py-16">
         <div className="text-center mb-12">
