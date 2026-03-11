@@ -524,7 +524,7 @@ const enTranslations = {
     dental: 'Dental Aesthetics',
   },
   hero: {
-    title1: 'Only what is naturally unique,',
+    title1: 'Only what is naturally unique',
     title2: 'Makes you the most distinctive symbol in the world',
     cta: 'Start Exploring Now',
   },

@@ -501,10 +501,10 @@ function App() {
 
       <section className="py-16 md:py-32 px-12">
         <AnimatedSection animation="fade-up" className="max-w-4xl mx-auto text-center">
-          <h1 className="text-xl md:text-3xl font-light mb-3 leading-relaxed tracking-wide" style={{color: '#1F1F1F'}}>
+          <h1 className="text-2xl md:text-4xl font-light mb-4 leading-relaxed tracking-wide bg-gradient-to-r from-slate-700 via-slate-800 to-slate-900 bg-clip-text text-transparent">
             {t('hero.title1')}
           </h1>
-          <h2 className="text-xl md:text-3xl font-light mb-12 leading-relaxed tracking-wide" style={{color: '#1F1F1F'}}>
+          <h2 className="text-2xl md:text-4xl font-light mb-12 leading-relaxed tracking-wide bg-gradient-to-r from-slate-700 via-slate-800 to-slate-900 bg-clip-text text-transparent">
             {t('hero.title2')}
           </h2>
           <button
