@@ -5,7 +5,7 @@ type Language = 'zh' | 'en';
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: (key: string) => string;
+  t: any;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -25,17 +25,7 @@ interface LanguageProviderProps {
 export const LanguageProvider = ({ children }: LanguageProviderProps) => {
   const [language, setLanguage] = useState<Language>('en');
 
-  const t = (key: string): string => {
-    const translations = getTranslations(language);
-    const keys = key.split('.');
-    let value: any = translations;
-
-    for (const k of keys) {
-      value = value?.[k];
-    }
-
-    return value || key;
-  };
+  const t = getTranslations(language);
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t }}>

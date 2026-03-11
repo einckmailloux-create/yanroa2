@@ -148,14 +148,14 @@ function App() {
           </button>
 
           <div className="hidden md:flex items-center gap-12">
-            <a href="#home" className="text-sm transition" style={{color: '#6B7280'}} onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'} onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}>{t('nav.home')}</a>
+            <a href="#home" className="text-sm transition" style={{color: '#6B7280'}} onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'} onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}>{t.nav.home}</a>
 
             <div
               className="relative"
               onMouseEnter={() => setShowProjectsMenu(true)}
               onMouseLeave={() => setShowProjectsMenu(false)}
             >
-              <a href="#projects" className="text-sm transition" style={{color: '#6B7280'}} onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'} onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}>{t('nav.projects')}</a>
+              <a href="#projects" className="text-sm transition" style={{color: '#6B7280'}} onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'} onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}>{t.nav.projects}</a>
 
               {showProjectsMenu && (
                 <>
@@ -181,7 +181,7 @@ function App() {
                             e.currentTarget.style.transform = 'scale(1)';
                           }}
                         >
-                          <span className="text-lg font-light tracking-wider">{t('nav.facialContour')}</span>
+                          <span className="text-lg font-light tracking-wider">{t.nav.facialContour}</span>
                         </button>
                         <button
                           onClick={() => navigate('/body-sculpting')}
@@ -196,7 +196,7 @@ function App() {
                             e.currentTarget.style.transform = 'scale(1)';
                           }}
                         >
-                          <span className="text-lg font-light tracking-wider">{t('nav.bodySculpting')}</span>
+                          <span className="text-lg font-light tracking-wider">{t.nav.bodySculpting}</span>
                         </button>
                         <button
                           onClick={() => navigate('/injection-lifting')}
@@ -211,7 +211,7 @@ function App() {
                             e.currentTarget.style.transform = 'scale(1)';
                           }}
                         >
-                          <span className="text-lg font-light tracking-wider">{t('nav.facialRejuvenation')}</span>
+                          <span className="text-lg font-light tracking-wider">{t.nav.facialRejuvenation}</span>
                         </button>
                         <button
                           onClick={() => navigate('/hair-transplant')}
@@ -226,7 +226,7 @@ function App() {
                             e.currentTarget.style.transform = 'scale(1)';
                           }}
                         >
-                          <span className="text-lg font-light tracking-wider">{t('nav.hairTransplant')}</span>
+                          <span className="text-lg font-light tracking-wider">{t.nav.hairTransplant}</span>
                         </button>
                         {/* Temporarily hidden - Dental page */}
                         {/* <button
@@ -242,7 +242,7 @@ function App() {
                             e.currentTarget.style.transform = 'scale(1)';
                           }}
                         >
-                          <span className="text-lg font-light tracking-wider">{t('nav.dental')}</span>
+                          <span className="text-lg font-light tracking-wider">{t.nav.dental}</span>
                         </button> */}
                       </div>
 
@@ -255,8 +255,8 @@ function App() {
               )}
             </div>
 
-            <button onClick={() => navigate('/cases')} className="text-sm transition" style={{color: '#6B7280'}} onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'} onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}>{t('nav.cases')}</button>
-            <button onClick={() => navigate('/faq')} className="text-sm transition" style={{color: '#6B7280'}} onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'} onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}>{t('nav.faq')}</button>
+            <button onClick={() => navigate('/cases')} className="text-sm transition" style={{color: '#6B7280'}} onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'} onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}>{t.nav.cases}</button>
+            <button onClick={() => navigate('/faq')} className="text-sm transition" style={{color: '#6B7280'}} onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'} onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}>{t.nav.faq}</button>
           </div>
 
           <div className="hidden md:flex items-center gap-4">
@@ -294,7 +294,7 @@ function App() {
                       onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                     >
                       <LogOut className="w-4 h-4" />
-                      {t('nav.logout')}
+                      {t.nav.logout}
                     </button>
                   </div>
                 )}
@@ -305,7 +305,7 @@ function App() {
                 className="text-sm transition px-4 py-2"
                 style={{color: '#6B7280'}}
               >
-                {t('nav.login')}
+                {t.nav.login}
               </button>
             )}
             <button
@@ -315,7 +315,7 @@ function App() {
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#101D29'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#1C2B3A'}
             >
-              {t('nav.bookNow')}
+              {t.nav.bookNow}
             </button>
           </div>
         </div>
@@ -345,7 +345,7 @@ function App() {
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
             >
-              {t('nav.home')}
+              {t.nav.home}
             </a>
 
             <div className="border-b border-white border-opacity-10">
@@ -355,7 +355,7 @@ function App() {
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
               >
-                {t('nav.projects')}
+                {t.nav.projects}
               </button>
               {showMobileProjects && (
                 <div className="bg-black bg-opacity-20">
@@ -368,7 +368,7 @@ function App() {
                     onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
                     onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                   >
-                    {t('nav.facialContour')}
+                    {t.nav.facialContour}
                   </button>
                   <button
                     onClick={() => {
@@ -379,7 +379,7 @@ function App() {
                     onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
                     onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                   >
-                    {t('nav.bodySculpting')}
+                    {t.nav.bodySculpting}
                   </button>
                   <button
                     onClick={() => {
@@ -390,7 +390,7 @@ function App() {
                     onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
                     onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                   >
-                    {t('nav.facialRejuvenation')}
+                    {t.nav.facialRejuvenation}
                   </button>
                   <button
                     onClick={() => {
@@ -401,7 +401,7 @@ function App() {
                     onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
                     onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                   >
-                    {t('nav.hairTransplant')}
+                    {t.nav.hairTransplant}
                   </button>
                   {/* Temporarily hidden - Dental page */}
                   {/* <button
@@ -413,7 +413,7 @@ function App() {
                     onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
                     onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                   >
-                    {t('nav.dental')}
+                    {t.nav.dental}
                   </button> */}
                 </div>
               )}
@@ -428,7 +428,7 @@ function App() {
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
             >
-              {t('nav.cases')}
+              {t.nav.cases}
             </button>
 
             <button
@@ -440,7 +440,7 @@ function App() {
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
             >
-              {t('nav.faq')}
+              {t.nav.faq}
             </button>
           </div>
 
@@ -454,7 +454,7 @@ function App() {
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.15)'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
             >
-              {t('nav.bookNow')}
+              {t.nav.bookNow}
             </button>
 
             {user ? (
@@ -472,7 +472,7 @@ function App() {
                   onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                 >
                   <LogOut className="w-4 h-4" />
-                  {t('nav.logout')}
+                  {t.nav.logout}
                 </button>
               </div>
             ) : (
@@ -485,7 +485,7 @@ function App() {
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.15)'}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
               >
-                {t('nav.login')}
+                {t.nav.login}
               </button>
             )}
           </div>
@@ -505,22 +505,22 @@ function App() {
             {/* 移动端：三行显示 */}
             <div className="md:hidden">
               <div className="bg-gradient-to-r from-slate-700 via-slate-800 to-slate-900 bg-clip-text text-transparent">
-                {t('hero.title1')}
+                {t.hero.title1}
               </div>
               <div className="bg-gradient-to-r from-slate-700 via-slate-800 to-slate-900 bg-clip-text text-transparent">
-                {t('hero.title2Mobile')}
+                {t.hero.title2Mobile}
               </div>
               <div className="bg-gradient-to-r from-slate-700 via-slate-800 to-slate-900 bg-clip-text text-transparent">
-                {t('hero.title3Mobile')}
+                {t.hero.title3Mobile}
               </div>
             </div>
             {/* 桌面端：两行显示 */}
             <div className="hidden md:block">
               <div className="bg-gradient-to-r from-slate-700 via-slate-800 to-slate-900 bg-clip-text text-transparent">
-                {t('hero.title1')}
+                {t.hero.title1}
               </div>
               <div className="bg-gradient-to-r from-slate-700 via-slate-800 to-slate-900 bg-clip-text text-transparent">
-                {t('hero.title2')}
+                {t.hero.title2}
               </div>
             </div>
           </div>
@@ -531,7 +531,7 @@ function App() {
             onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#101D29'}
             onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#1C2B3A'}
           >
-            {t('hero.cta')}
+            {t.hero.cta}
           </button>
         </AnimatedSection>
       </section>
@@ -563,13 +563,13 @@ function App() {
 
             <div className="w-2/5 flex flex-col justify-center space-y-10 pl-6">
               <div className="border-l-4 pl-6" style={{borderColor: '#B9CBDC'}}>
-                <h3 className="text-lg font-light leading-relaxed tracking-wide" style={{color: '#1F1F1F'}}>{t('nav.facialContour')}</h3>
+                <h3 className="text-lg font-light leading-relaxed tracking-wide" style={{color: '#1F1F1F'}}>{t.nav.facialContour}</h3>
               </div>
               <div className="border-l-4 pl-6" style={{borderColor: '#B9CBDC'}}>
-                <h3 className="text-lg font-light leading-relaxed tracking-wide" style={{color: '#1F1F1F'}}>{t('nav.bodySculpting')}</h3>
+                <h3 className="text-lg font-light leading-relaxed tracking-wide" style={{color: '#1F1F1F'}}>{t.nav.bodySculpting}</h3>
               </div>
               <div className="border-l-4 pl-6" style={{borderColor: '#B9CBDC'}}>
-                <h3 className="text-lg font-light leading-relaxed tracking-wide" style={{color: '#1F1F1F'}}>{t('nav.facialRejuvenation')}</h3>
+                <h3 className="text-lg font-light leading-relaxed tracking-wide" style={{color: '#1F1F1F'}}>{t.nav.facialRejuvenation}</h3>
               </div>
             </div>
           </div>
@@ -609,7 +609,7 @@ function App() {
                   border: '1.5px solid #B9CBDC'
                 }}
               >
-                <h3 className="text-sm font-normal text-center" style={{color: '#1F1F1F'}}>{t('nav.facialContour')}</h3>
+                <h3 className="text-sm font-normal text-center" style={{color: '#1F1F1F'}}>{t.nav.facialContour}</h3>
               </div>
               <div
                 className="px-4 py-3 rounded-lg"
@@ -618,7 +618,7 @@ function App() {
                   border: '1.5px solid #B9CBDC'
                 }}
               >
-                <h3 className="text-sm font-normal text-center" style={{color: '#1F1F1F'}}>{t('nav.bodySculpting')}</h3>
+                <h3 className="text-sm font-normal text-center" style={{color: '#1F1F1F'}}>{t.nav.bodySculpting}</h3>
               </div>
               <div
                 className="px-4 py-3 rounded-lg"
@@ -627,7 +627,7 @@ function App() {
                   border: '1.5px solid #B9CBDC'
                 }}
               >
-                <h3 className="text-sm font-normal text-center" style={{color: '#1F1F1F'}}>{t('nav.facialRejuvenation')}</h3>
+                <h3 className="text-sm font-normal text-center" style={{color: '#1F1F1F'}}>{t.nav.facialRejuvenation}</h3>
               </div>
             </div>
           </div>
@@ -638,7 +638,7 @@ function App() {
         <div className="max-w-6xl mx-auto">
           <div className="hidden md:block">
             <AnimatedSection animation="fade-up">
-              <h2 className="text-3xl font-light text-center mb-20 tracking-wide" style={{color: '#1F1F1F'}}>{t('advantages.title')}</h2>
+              <h2 className="text-3xl font-light text-center mb-20 tracking-wide" style={{color: '#1F1F1F'}}>{t.advantages.title}</h2>
             </AnimatedSection>
 
             <AnimatedSection animation="fade-up" delay={200}>
@@ -647,11 +647,11 @@ function App() {
 
                 <div className="grid grid-cols-5 gap-8 relative">
                   {[
-                    { num: '1', title: t('advantages.advantage1') },
-                    { num: '2', title: t('advantages.advantage2') },
-                    { num: '3', title: t('advantages.advantage3') },
-                    { num: '4', title: t('advantages.advantage4') },
-                    { num: '5', title: t('advantages.advantage5') }
+                    { num: '1', title: t.advantages.advantage1 },
+                    { num: '2', title: t.advantages.advantage2 },
+                    { num: '3', title: t.advantages.advantage3 },
+                    { num: '4', title: t.advantages.advantage4 },
+                    { num: '5', title: t.advantages.advantage5 }
                   ].map((item) => (
                     <div key={item.num} className="text-center relative">
                       <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-xl font-light relative z-10" style={{backgroundColor: '#1C2B3A'}}>
@@ -675,15 +675,15 @@ function App() {
                 </div>
               </div>
 
-              <h2 className="text-2xl font-light text-center mb-5 text-white">{t('advantages.title')}</h2>
+              <h2 className="text-2xl font-light text-center mb-5 text-white">{t.advantages.title}</h2>
 
               <div className="rounded-2xl p-4 space-y-0" style={{backgroundColor: 'rgba(255,255,255,0.2)'}}>
                 {[
-                  { num: '1', title: t('advantages.advantage1') },
-                  { num: '2', title: t('advantages.advantage2') },
-                  { num: '3', title: t('advantages.advantage3') },
-                  { num: '4', title: t('advantages.advantage4') },
-                  { num: '5', title: t('advantages.advantage5') }
+                  { num: '1', title: t.advantages.advantage1 },
+                  { num: '2', title: t.advantages.advantage2 },
+                  { num: '3', title: t.advantages.advantage3 },
+                  { num: '4', title: t.advantages.advantage4 },
+                  { num: '5', title: t.advantages.advantage5 }
                 ].map((item, index, array) => (
                   <div key={item.num}>
                     <div className="flex items-start gap-3 py-2">
@@ -713,10 +713,10 @@ function App() {
         <div className="max-w-6xl mx-auto">
           <AnimatedSection animation="fade-up" className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-light mb-4 tracking-wide" style={{color: '#1F1F1F'}}>
-              {t('ethnicity.title')}
+              {t.ethnicity.title}
             </h2>
             <p className="text-sm md:text-base leading-relaxed tracking-wide" style={{color: '#4B5563'}}>
-              {t('ethnicity.subtitle')}
+              {t.ethnicity.subtitle}
             </p>
           </AnimatedSection>
 
@@ -728,27 +728,27 @@ function App() {
             <div className="hidden md:grid md:grid-cols-3 gap-6 md:gap-16 mb-6 md:mb-16">
               {[
                 {
-                  ethnicity: t('ethnicity.black'),
+                  ethnicity: t.ethnicity.black,
                   image: '/black_facial_features/1_(1).png',
                   features: {
-                    bone: t('ethnicity.blackBone'),
-                    soft: t('ethnicity.blackSoft')
+                    bone: t.ethnicity.blackBone,
+                    soft: t.ethnicity.blackSoft
                   }
                 },
                 {
-                  ethnicity: t('ethnicity.asian'),
+                  ethnicity: t.ethnicity.asian,
                   image: '/east_asian_facial_features/1_(2).png',
                   features: {
-                    bone: t('ethnicity.asianBone'),
-                    soft: t('ethnicity.asianSoft')
+                    bone: t.ethnicity.asianBone,
+                    soft: t.ethnicity.asianSoft
                   }
                 },
                 {
-                  ethnicity: t('ethnicity.white'),
+                  ethnicity: t.ethnicity.white,
                   image: '/white_facial_features/3.png',
                   features: {
-                    bone: t('ethnicity.whiteBone'),
-                    soft: t('ethnicity.whiteSoft')
+                    bone: t.ethnicity.whiteBone,
+                    soft: t.ethnicity.whiteSoft
                   }
                 }
               ].map((item) => (
@@ -773,11 +773,11 @@ function App() {
                   >
                     <div className="text-left space-y-3 px-4 py-2">
                       <div>
-                        <h4 className="text-xs font-medium mb-1" style={{color: '#1F1F1F'}}>1. {t('ethnicity.boneFeatures')}</h4>
+                        <h4 className="text-xs font-medium mb-1" style={{color: '#1F1F1F'}}>1. {t.ethnicity.boneFeatures}</h4>
                         <p className="text-xs leading-relaxed" style={{color: '#6B7280'}}>{item.features.bone}</p>
                       </div>
                       <div>
-                        <h4 className="text-xs font-medium mb-1" style={{color: '#1F1F1F'}}>2. {t('ethnicity.softTissue')}</h4>
+                        <h4 className="text-xs font-medium mb-1" style={{color: '#1F1F1F'}}>2. {t.ethnicity.softTissue}</h4>
                         <p className="text-xs leading-relaxed" style={{color: '#6B7280'}}>{item.features.soft}</p>
                       </div>
                     </div>
@@ -790,27 +790,27 @@ function App() {
               <div className="space-y-4">
                 {[
                   {
-                    ethnicity: t('ethnicity.black'),
+                    ethnicity: t.ethnicity.black,
                     image: '/black_facial_features/1_(1).png',
                     features: {
-                      bone: t('ethnicity.blackBone'),
-                      soft: t('ethnicity.blackSoft')
+                      bone: t.ethnicity.blackBone,
+                      soft: t.ethnicity.blackSoft
                     }
                   },
                   {
-                    ethnicity: t('ethnicity.asian'),
+                    ethnicity: t.ethnicity.asian,
                     image: '/east_asian_facial_features/1_(2).png',
                     features: {
-                      bone: t('ethnicity.asianBone'),
-                      soft: t('ethnicity.asianSoft')
+                      bone: t.ethnicity.asianBone,
+                      soft: t.ethnicity.asianSoft
                     }
                   },
                   {
-                    ethnicity: t('ethnicity.white'),
+                    ethnicity: t.ethnicity.white,
                     image: '/white_facial_features/3.png',
                     features: {
-                      bone: t('ethnicity.whiteBone'),
-                      soft: t('ethnicity.whiteSoft')
+                      bone: t.ethnicity.whiteBone,
+                      soft: t.ethnicity.whiteSoft
                     }
                   }
                 ].map((item) => (
@@ -840,11 +840,11 @@ function App() {
                     >
                       <div className="text-left space-y-2 pt-2 border-t border-gray-100">
                         <div>
-                          <h4 className="text-xs font-medium mb-1" style={{color: '#1F1F1F'}}>1. {t('ethnicity.boneFeatures')}</h4>
+                          <h4 className="text-xs font-medium mb-1" style={{color: '#1F1F1F'}}>1. {t.ethnicity.boneFeatures}</h4>
                           <p className="text-xs leading-relaxed" style={{color: '#6B7280'}}>{item.features.bone}</p>
                         </div>
                         <div>
-                          <h4 className="text-xs font-medium mb-1" style={{color: '#1F1F1F'}}>2. {t('ethnicity.softTissue')}</h4>
+                          <h4 className="text-xs font-medium mb-1" style={{color: '#1F1F1F'}}>2. {t.ethnicity.softTissue}</h4>
                           <p className="text-xs leading-relaxed" style={{color: '#6B7280'}}>{item.features.soft}</p>
                         </div>
                       </div>
@@ -855,7 +855,7 @@ function App() {
             </div>
 
             <p className="text-center text-sm tracking-wide mt-8" style={{color: '#6B7280'}}>
-              {t('ethnicity.cta')}
+              {t.ethnicity.cta}
             </p>
             </div>
           </div>
@@ -866,10 +866,10 @@ function App() {
         <div className="max-w-7xl mx-auto py-12 md:py-20 px-4">
           <div className="text-center mb-8 md:mb-16">
             <h2 className="text-2xl md:text-3xl font-light mb-4 tracking-wide" style={{color: '#1F2937'}}>
-              {t('analysis.title')}
+              {t.analysis.title}
             </h2>
             <p className="text-base md:text-lg font-light tracking-wide" style={{color: '#6B7280'}}>
-              {t('analysis.subtitle')}
+              {t.analysis.subtitle}
             </p>
           </div>
         </div>
@@ -921,13 +921,13 @@ function App() {
               <div className="flex-shrink-0 w-24">
                 <img
                   src="/ecd4dea6a9aeb8932f049b884f734919.jpg"
-                  alt={t('facialAnalysis.foreheadTitle')}
+                  alt={t.facialAnalysis.foreheadTitle}
                   className="w-full h-auto object-cover rounded-lg"
                 />
               </div>
               <div className="flex-1">
                 <p className={`leading-relaxed ${language === 'en' ? 'text-[0.6875rem]' : 'text-xs'}`} style={{color: '#6B7280'}}>
-                  {t('facialAnalysis.foreheadDesc')}
+                  {t.facialAnalysis.foreheadDesc}
                 </p>
               </div>
             </div>
@@ -936,13 +936,13 @@ function App() {
               <div className="flex-shrink-0 w-24">
                 <img
                   src="/0b9a6dc4116a99bdcba731e6384301b3.jpg"
-                  alt={t('facialAnalysis.outerContourTitle')}
+                  alt={t.facialAnalysis.outerContourTitle}
                   className="w-full h-auto object-cover rounded-lg"
                 />
               </div>
               <div className="flex-1">
                 <p className={`leading-relaxed ${language === 'en' ? 'text-[0.6875rem]' : 'text-xs'}`} style={{color: '#6B7280'}}>
-                  {t('facialAnalysis.outerContourDesc')}
+                  {t.facialAnalysis.outerContourDesc}
                 </p>
               </div>
             </div>
@@ -951,13 +951,13 @@ function App() {
               <div className="flex-shrink-0 w-24">
                 <img
                   src="/e9d22fcf270788298cf5cc46aa47e5e6.jpg"
-                  alt={t('facialAnalysis.innerContourTitle')}
+                  alt={t.facialAnalysis.innerContourTitle}
                   className="w-full h-auto object-cover rounded-lg"
                 />
               </div>
               <div className="flex-1">
                 <p className={`leading-relaxed ${language === 'en' ? 'text-[0.6875rem]' : 'text-xs'}`} style={{color: '#6B7280'}}>
-                  {t('facialAnalysis.innerContourDesc')}
+                  {t.facialAnalysis.innerContourDesc}
                 </p>
               </div>
             </div>
@@ -972,44 +972,44 @@ function App() {
         <div className="max-w-7xl mx-auto rounded-3xl p-6 md:p-8" style={{backgroundColor: '#FFFFFF'}}>
           <AnimatedSection animation="fade-up">
             <h2 className="text-2xl md:text-3xl font-light text-center mb-3 tracking-wide" style={{color: '#1F1F1F'}}>
-              {t('facialFold.title')}
+              {t.facialFold.title}
             </h2>
             <p className="text-sm md:text-base text-center mb-8 md:mb-12 tracking-wide" style={{color: '#6B7280'}}>
-              {t('facialFold.subtitle')}
+              {t.facialFold.subtitle}
             </p>
           </AnimatedSection>
 
           <div className="grid grid-cols-2 gap-4 md:gap-8">
             <AnimatedSection animation="fade-left" delay={100} className="space-y-3 md:space-y-4">
-              <h3 className="text-sm md:text-lg font-medium text-center" style={{color: '#1F1F1F'}}>{t('facialFold.lowFold')}</h3>
+              <h3 className="text-sm md:text-lg font-medium text-center" style={{color: '#1F1F1F'}}>{t.facialFold.lowFold}</h3>
               <div className="rounded-2xl overflow-hidden" style={{backgroundColor: '#F5F8FA'}}>
                 <img
                   src="/c902ff4b95da45684c7afeaa83488729.jpg"
-                  alt={t('facialFold.youngState')}
+                  alt={t.facialFold.youngState}
                   className="w-full h-auto object-cover"
                 />
               </div>
               <div className="rounded-2xl overflow-hidden flex items-center justify-center p-4 md:p-6" style={{backgroundColor: '#F5F8FA'}}>
                 <img
                   src="/Gemini_Generated_Image_ig76luig76luig76.png"
-                  alt={t('facialFold.diagram3d')}
+                  alt={t.facialFold.diagram3d}
                   className="w-auto h-20 md:h-40 object-contain"
                 />
               </div>
             </AnimatedSection>
             <AnimatedSection animation="fade-right" delay={100} className="space-y-3 md:space-y-4">
-              <h3 className="text-sm md:text-lg font-medium text-center" style={{color: '#1F1F1F'}}>{t('facialFold.highFold')}</h3>
+              <h3 className="text-sm md:text-lg font-medium text-center" style={{color: '#1F1F1F'}}>{t.facialFold.highFold}</h3>
               <div className="rounded-2xl overflow-hidden" style={{backgroundColor: '#F5F8FA'}}>
                 <img
                   src="/6ddd0ec9ec91d3e5b3bc59d068c2a2b5.jpg"
-                  alt={t('facialFold.youngState')}
+                  alt={t.facialFold.youngState}
                   className="w-full h-auto object-cover"
                 />
               </div>
               <div className="rounded-2xl overflow-hidden flex items-center justify-center p-4 md:p-6" style={{backgroundColor: '#F5F8FA'}}>
                 <img
                   src="/Gemini_Generated_Image_x86obtx86obtx86o.png"
-                  alt={t('facialFold.diagram3d')}
+                  alt={t.facialFold.diagram3d}
                   className="w-auto h-20 md:h-40 object-contain"
                 />
               </div>
@@ -1028,9 +1028,9 @@ function App() {
         <div className="max-w-6xl mx-auto">
           {/* 标题和副标题 */}
           <AnimatedSection animation="fade-up">
-            <h2 className="text-2xl md:text-3xl font-light text-center mb-3 tracking-wide" style={{color: '#1F1F1F'}}>{t('plan.title')}</h2>
+            <h2 className="text-2xl md:text-3xl font-light text-center mb-3 tracking-wide" style={{color: '#1F1F1F'}}>{t.plan.title}</h2>
             <p className="text-sm text-center mb-8 md:mb-16 tracking-wide" style={{color: '#6B7280'}}>
-              {t('plan.subtitle')}
+              {t.plan.subtitle}
             </p>
           </AnimatedSection>
 
@@ -1046,12 +1046,12 @@ function App() {
                 <div className="overflow-hidden relative w-40 rounded-2xl" style={{backgroundColor: '#F3F4F6'}}>
                   <img
                     src="/540f310b1f9b5244da98c950465274f4.png"
-                    alt={t('plan.before')}
+                    alt={t.plan.before}
                     className="h-56 w-full object-cover"
                   />
                   {/* BEFORE标签 */}
                   <div className="absolute bottom-2 left-2 bg-white px-2 py-0.5 rounded">
-                    <span className="text-xs text-gray-600">{t('plan.beforeLabel')}</span>
+                    <span className="text-xs text-gray-600">{t.plan.beforeLabel}</span>
                   </div>
                 </div>
 
@@ -1059,12 +1059,12 @@ function App() {
                 <div className="overflow-hidden relative w-40 rounded-2xl" style={{backgroundColor: '#F3F4F6'}}>
                   <img
                     src="/7f2a85b5a678c2f472ee7c56c64a6039.png"
-                    alt={t('plan.after')}
+                    alt={t.plan.after}
                     className="h-56 w-full object-cover"
                   />
                   {/* AFTER标签 */}
                   <div className="absolute bottom-2 left-2 bg-white px-2 py-0.5 rounded">
-                    <span className="text-xs text-gray-600">{t('plan.afterLabel')}</span>
+                    <span className="text-xs text-gray-600">{t.plan.afterLabel}</span>
                   </div>
                 </div>
               </div>
@@ -1074,10 +1074,10 @@ function App() {
                 backgroundColor: '#F5F8FA'
               }}>
                 {[
-                  { num: '01', title: t('plan.step1') }, // 获取专家面部分析
-                  { num: '02', title: t('plan.step2') }, // 你最美的样子
-                  { num: '03', title: t('plan.step3') }, // 获取你的专属焕颜方案
-                  { num: '04', title: t('plan.step4') }  // 见证显著效果
+                  { num: '01', title: t.plan.step1 }, // 获取专家面部分析
+                  { num: '02', title: t.plan.step2 }, // 你最美的样子
+                  { num: '03', title: t.plan.step3 }, // 获取你的专属焕颜方案
+                  { num: '04', title: t.plan.step4 }  // 见证显著效果
                 ].map((item, index, array) => (
                   <div key={item.num}>
                     {/* 步骤卡片 - 长条边框 */}
@@ -1143,13 +1143,13 @@ function App() {
               <div className="overflow-hidden relative rounded-2xl" style={{width: '400px', backgroundColor: '#F3F4F6'}}>
                 <img
                   src="/540f310b1f9b5244da98c950465274f4.png"
-                  alt={t('plan.before')}
+                  alt={t.plan.before}
                   className="w-full object-cover"
                   style={{height: '500px'}}
                 />
                 {/* BEFORE标签 - 左下角 */}
                 <div className="absolute bottom-4 left-4 bg-white px-3 py-1.5 shadow rounded">
-                  <span className="text-xs font-medium text-gray-700">{t('plan.beforeLabel')}</span>
+                  <span className="text-xs font-medium text-gray-700">{t.plan.beforeLabel}</span>
                 </div>
               </div>
 
@@ -1157,13 +1157,13 @@ function App() {
               <div className="overflow-hidden relative rounded-2xl" style={{width: '400px', backgroundColor: '#F3F4F6'}}>
                 <img
                   src="/7f2a85b5a678c2f472ee7c56c64a6039.png"
-                  alt={t('plan.after')}
+                  alt={t.plan.after}
                   className="w-full object-cover"
                   style={{height: '500px'}}
                 />
                 {/* AFTER标签 - 左下角 */}
                 <div className="absolute bottom-4 left-4 bg-white px-3 py-1.5 shadow rounded">
-                  <span className="text-xs font-medium text-gray-700">{t('plan.afterLabel')}</span>
+                  <span className="text-xs font-medium text-gray-700">{t.plan.afterLabel}</span>
                 </div>
               </div>
             </div>
@@ -1171,10 +1171,10 @@ function App() {
             {/* 手术步骤区 - 单行横向排列，背景为白色 */}
             <div className="flex gap-16 justify-center bg-white rounded-2xl px-12 py-8">
               {[
-                { num: '01', title: t('plan.step1') }, // 获取专家面部分析
-                { num: '02', title: t('plan.step2') }, // 你最美的样子
-                { num: '03', title: t('plan.step3') }, // 获取你的专属焕颜方案
-                { num: '04', title: t('plan.step4') }  // 见证显著效果
+                { num: '01', title: t.plan.step1 }, // 获取专家面部分析
+                { num: '02', title: t.plan.step2 }, // 你最美的样子
+                { num: '03', title: t.plan.step3 }, // 获取你的专属焕颜方案
+                { num: '04', title: t.plan.step4 }  // 见证显著效果
               ].map((item) => (
                 <div key={item.num} className="flex flex-col items-center text-center">
                   {/* 步骤编号 - 大号灰色数字 */}
@@ -1193,7 +1193,7 @@ function App() {
         <div className="max-w-6xl mx-auto">
           <AnimatedSection animation="fade-up">
             <h2 className="text-2xl md:text-3xl font-light text-center mb-4 tracking-wide" style={{color: '#1F1F1F'}}>
-              {t('concerns.title')}
+              {t.concerns.title}
             </h2>
             <div className="w-16 h-px mx-auto mb-12 md:mb-16" style={{backgroundColor: '#B9CBDC'}}></div>
           </AnimatedSection>
@@ -1221,10 +1221,10 @@ function App() {
                     </div>
                     <div className="flex-1">
                       <h3 className="text-base md:text-lg font-normal mb-1.5 tracking-wide" style={{color: '#1F1F1F'}}>
-                        {t('concerns.issue1Title')}
+                        {t.concerns.issue1Title}
                       </h3>
                       <p className="text-xs md:text-sm leading-relaxed" style={{color: '#6B7280'}}>
-                        {t('concerns.issue1Desc')}
+                        {t.concerns.issue1Desc}
                       </p>
                     </div>
                   </div>
@@ -1258,10 +1258,10 @@ function App() {
                     </div>
                     <div className="flex-1">
                       <h3 className="text-base md:text-lg font-normal mb-1.5 tracking-wide" style={{color: '#1F1F1F'}}>
-                        {t('concerns.issue2Title')}
+                        {t.concerns.issue2Title}
                       </h3>
                       <p className="text-xs md:text-sm leading-relaxed" style={{color: '#6B7280'}}>
-                        {t('concerns.issue2Desc')}
+                        {t.concerns.issue2Desc}
                       </p>
                     </div>
                   </div>
@@ -1295,10 +1295,10 @@ function App() {
                     </div>
                     <div className="flex-1">
                       <h3 className="text-base md:text-lg font-normal mb-1.5 tracking-wide" style={{color: '#1F1F1F'}}>
-                        {t('concerns.issue3Title')}
+                        {t.concerns.issue3Title}
                       </h3>
                       <p className="text-xs md:text-sm leading-relaxed" style={{color: '#6B7280'}}>
-                        {t('concerns.issue3Desc')}
+                        {t.concerns.issue3Desc}
                       </p>
                     </div>
                   </div>
@@ -1332,10 +1332,10 @@ function App() {
                     </div>
                     <div className="flex-1">
                       <h3 className="text-base md:text-lg font-normal mb-1.5 tracking-wide" style={{color: '#1F1F1F'}}>
-                        {t('concerns.issue4Title')}
+                        {t.concerns.issue4Title}
                       </h3>
                       <p className="text-xs md:text-sm leading-relaxed" style={{color: '#6B7280'}}>
-                        {t('concerns.issue4Desc')}
+                        {t.concerns.issue4Desc}
                       </p>
                     </div>
                   </div>
@@ -1355,9 +1355,9 @@ function App() {
         <div className="max-w-7xl mx-auto">
           <AnimatedSection animation="fade-up">
             <h2 className="text-2xl md:text-3xl font-light text-center mb-3 tracking-wide" style={{color: '#1F1F1F'}}>
-              {t('vision.title')}
+              {t.vision.title}
             </h2>
-            <p className="text-sm md:text-base text-center mb-8 md:mb-16 tracking-wide" style={{color: '#6B7280'}}>{t('vision.subtitle')}</p>
+            <p className="text-sm md:text-base text-center mb-8 md:mb-16 tracking-wide" style={{color: '#6B7280'}}>{t.vision.subtitle}</p>
           </AnimatedSection>
 
           <AnimatedSection animation="scale-in" delay={200} className="mb-8 md:mb-16 mx-auto w-full md:w-4/5 lg:w-3/4">
@@ -1375,7 +1375,7 @@ function App() {
       <section className="py-8 md:py-24 px-3 md:px-12 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-4xl font-light text-center mb-6 md:mb-8" style={{color: '#1F2937'}}>
-            {detailedCases.length > 0 ? (language === 'zh' ? detailedCases[0].title_zh : detailedCases[0].title_en) : t('realCases.title')}
+            {detailedCases.length > 0 ? (language === 'zh' ? detailedCases[0].title_zh : detailedCases[0].title_en) : t.realCases.title}
           </h2>
 
           {detailedCases.length > 0 ? (
@@ -1388,14 +1388,14 @@ function App() {
                       <div className="aspect-[3/4] overflow-hidden">
                         <img
                           src={caseItem.before_image_url}
-                          alt={t('realCases.before')}
+                          alt={t.realCases.before}
                           className="w-full h-full object-cover"
                         />
                       </div>
                       <div className="aspect-[3/4] overflow-hidden">
                         <img
                           src={caseItem.after_image_url}
-                          alt={t('realCases.after')}
+                          alt={t.realCases.after}
                           className="w-full h-full object-cover"
                         />
                       </div>
@@ -1442,14 +1442,14 @@ function App() {
                       <div className="aspect-[3/5] overflow-hidden">
                         <img
                           src={caseItem.before_image_url}
-                          alt={t('realCases.before')}
+                          alt={t.realCases.before}
                           className="w-full h-full object-cover"
                         />
                       </div>
                       <div className="aspect-[3/5] overflow-hidden">
                         <img
                           src={caseItem.after_image_url}
-                          alt={t('realCases.after')}
+                          alt={t.realCases.after}
                           className="w-full h-full object-cover"
                         />
                       </div>
@@ -1460,7 +1460,7 @@ function App() {
                       <div className="absolute left-0 right-0 top-1/2 h-px" style={{backgroundColor: '#D1D5DB', transform: 'translateY(-50%)'}}></div>
                       <div className="relative text-center">
                         <span className="inline-block px-4 py-1 text-sm font-light" style={{backgroundColor: '#F3F4F6', color: '#6B7280'}}>
-                          {caseItem.timeline_months} {t('realCases.months')}
+                          {caseItem.timeline_months} {t.realCases.months}
                         </span>
                       </div>
                     </div>
@@ -1515,17 +1515,17 @@ function App() {
           {/* Mobile title */}
           <AnimatedSection animation="fade-up" className="md:hidden">
             <h2 className="text-2xl font-light text-center mb-3 tracking-wide px-6" style={{color: '#1F1F1F'}}>
-              {t('testimonials.title')}
+              {t.testimonials.title}
             </h2>
-            <p className="text-sm text-center mb-2" style={{color: '#6B7280'}}>{t('testimonials.mapTitle')}</p>
-            <p className="text-xs text-center mb-6" style={{color: '#6B7280'}}>{t('testimonials.mapSubtitle')}</p>
+            <p className="text-sm text-center mb-2" style={{color: '#6B7280'}}>{t.testimonials.mapTitle}</p>
+            <p className="text-xs text-center mb-6" style={{color: '#6B7280'}}>{t.testimonials.mapSubtitle}</p>
             <div className="w-20 h-px mx-auto mb-8" style={{backgroundColor: '#A0A7B5'}}></div>
           </AnimatedSection>
 
           {/* Desktop title */}
           <AnimatedSection animation="fade-up" className="hidden md:block">
             <h2 className="text-3xl font-light text-center mb-4 tracking-wide px-12" style={{color: '#1F1F1F'}}>
-              {t('testimonials.title')}
+              {t.testimonials.title}
             </h2>
             <div className="w-20 h-px mx-auto mb-6" style={{backgroundColor: '#A0A7B5'}}></div>
           </AnimatedSection>
@@ -1534,8 +1534,8 @@ function App() {
           <div className="hidden md:block max-w-7xl mx-auto mb-8 px-12">
             <div className="grid grid-cols-12 gap-6 items-center">
               <div className="col-span-3">
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">{t('testimonials.mapTitle')}</h3>
-                <p className="text-sm text-gray-600">{t('testimonials.mapSubtitle')}</p>
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">{t.testimonials.mapTitle}</h3>
+                <p className="text-sm text-gray-600">{t.testimonials.mapSubtitle}</p>
               </div>
               <div className="col-span-9 col-start-4">
                 <div className="w-full h-[36rem] overflow-hidden">
@@ -1566,14 +1566,14 @@ function App() {
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-5 rounded-full -ml-24 -mb-24"></div>
 
             <div className="relative">
-              <h2 className="text-2xl md:text-3xl font-light text-white mb-8 md:mb-12 tracking-wide">{t('journey.title')}</h2>
+              <h2 className="text-2xl md:text-3xl font-light text-white mb-8 md:mb-12 tracking-wide">{t.journey.title}</h2>
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mb-8 md:mb-12">
                 {[
-                  t('journey.step1'),
-                  t('journey.step2'),
-                  t('journey.step3'),
-                  t('journey.step4')
+                  t.journey.step1,
+                  t.journey.step2,
+                  t.journey.step3,
+                  t.journey.step4
                 ].map((step, index) => (
                   <div key={index} className="bg-white bg-opacity-10 backdrop-blur-sm p-6 md:p-8 text-white">
                     <div className="text-xl md:text-2xl font-light mb-2 md:mb-3">{index + 1}</div>
@@ -1590,7 +1590,7 @@ function App() {
                   onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#F3F4F6'}
                   onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FFFFFF'}
                 >
-                  {t('journey.cta')}
+                  {t.journey.cta}
                 </button>
               </div>
             </div>
