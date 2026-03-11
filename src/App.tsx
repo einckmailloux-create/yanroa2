@@ -501,15 +501,13 @@ function App() {
 
       <section className="py-16 md:py-32 px-12">
         <AnimatedSection animation="fade-up" className="max-w-4xl mx-auto text-center">
-          <h1 className="text-2xl md:text-4xl font-light mb-4 leading-relaxed tracking-wide bg-gradient-to-r from-slate-700 via-slate-800 to-slate-900 bg-clip-text text-transparent">
-            {t('hero.title1')}
-          </h1>
-          <h2 className="text-2xl md:text-4xl font-light mb-12 leading-relaxed tracking-wide bg-gradient-to-r from-slate-700 via-slate-800 to-slate-900 bg-clip-text text-transparent">
-            {t('hero.title2')}
-          </h2>
+          <div className="text-2xl md:text-4xl font-light mb-4 md:mb-4 leading-relaxed tracking-wide bg-gradient-to-r from-slate-700 via-slate-800 to-slate-900 bg-clip-text text-transparent">
+            <div className="md:inline">{t('hero.title1')}</div>
+            <div className="md:inline md:ml-2">{t('hero.title2')}</div>
+          </div>
           <button
             onClick={() => navigate('/booking')}
-            className="px-12 py-3 text-white text-sm transition tracking-wider"
+            className="px-12 py-3 text-white text-sm transition tracking-wider mt-8"
             style={{backgroundColor: '#1C2B3A'}}
             onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#101D29'}
             onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#1C2B3A'}
