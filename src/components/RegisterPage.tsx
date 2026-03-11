@@ -4,9 +4,11 @@ import { supabase } from '../lib/supabase';
 import { Mail, Lock, Eye, EyeOff, Upload, User } from 'lucide-react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { useLanguage } from '../contexts/LanguageContext';
 
 function RegisterPage() {
   const navigate = useNavigate();
+  const { t } = useLanguage();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -64,12 +66,12 @@ function RegisterPage() {
     setError('');
 
     if (password !== confirmPassword) {
-      setError('两次输入的密码不一致');
+      setError(t.registerPage.errorPasswordMismatch);
       return;
     }
 
     if (password.length < 6) {
-      setError('密码长度至少为6个字符');
+      setError(t.registerPage.errorPasswordLength);
       return;
     }
 
@@ -95,7 +97,7 @@ function RegisterPage() {
             .upload(fileName, avatarFile);
 
           if (uploadError) {
-            console.error('头像上传失败:', uploadError);
+            console.error(t.registerPage.avatarUploadError, uploadError);
           } else {
             const { data: urlData } = supabase.storage
               .from('avatars')
@@ -111,15 +113,15 @@ function RegisterPage() {
             .eq('id', authData.user.id);
 
           if (updateError) {
-            console.error('更新头像失败:', updateError);
+            console.error(t.registerPage.avatarUpdateError, updateError);
           }
         }
 
-        alert('注册成功！请登录您的账户。');
+        alert(t.registerPage.successMessage);
         navigate('/login');
       }
     } catch (err: any) {
-      setError(err.message || '注册失败，请稍后再试');
+      setError(err.message || t.registerPage.errorDefault);
     } finally {
       setLoading(false);
     }
@@ -135,7 +137,7 @@ function RegisterPage() {
             YANORA
           </h1>
           <p className="text-sm tracking-wide" style={{color: '#6B7280'}}>
-            创建新账户
+            {t.registerPage.title}
           </p>
         </div>
 
@@ -148,7 +150,7 @@ function RegisterPage() {
 
           <div>
             <label className="block text-sm font-normal mb-3 tracking-wide" style={{color: '#1F1F1F'}}>
-              头像
+              {t.registerPage.avatar}
             </label>
             <div className="flex items-center gap-4">
               <div className="w-24 h-24 border-2 border-dashed rounded-full flex items-center justify-center overflow-hidden" style={{borderColor: '#D1D5DB'}}>
@@ -169,7 +171,7 @@ function RegisterPage() {
                   />
                   <span className="inline-flex items-center gap-2 px-4 py-2 border text-sm cursor-pointer transition" style={{borderColor: '#D1D5DB', color: '#1F1F1F'}}>
                     <Upload className="w-4 h-4" />
-                    上传头像
+                    {t.registerPage.uploadAvatar}
                   </span>
                 </label>
                 <button
@@ -179,7 +181,7 @@ function RegisterPage() {
                   className="block w-full text-left px-4 py-2 border text-sm transition disabled:opacity-50"
                   style={{borderColor: '#D1D5DB', color: '#1F1F1F'}}
                 >
-                  生成默认头像
+                  {t.registerPage.generateAvatar}
                 </button>
               </div>
             </div>
@@ -187,7 +189,7 @@ function RegisterPage() {
 
           <div>
             <label className="block text-sm font-normal mb-3 tracking-wide" style={{color: '#1F1F1F'}}>
-              邮箱地址 <span style={{color: '#EF4444'}}>*</span>
+              {t.registerPage.email} <span style={{color: '#EF4444'}}>{t.registerPage.required}</span>
             </label>
             <div className="relative">
               <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5" style={{color: '#9CA3AF'}} />
@@ -198,14 +200,14 @@ function RegisterPage() {
                 required
                 className="w-full pl-12 pr-5 py-4 border text-sm tracking-wide transition focus:outline-none focus:border-gray-900"
                 style={{borderColor: '#D1D5DB', color: '#1F1F1F'}}
-                placeholder="your@email.com"
+                placeholder={t.registerPage.emailPlaceholder}
               />
             </div>
           </div>
 
           <div>
             <label className="block text-sm font-normal mb-3 tracking-wide" style={{color: '#1F1F1F'}}>
-              密码 <span style={{color: '#EF4444'}}>*</span>
+              {t.registerPage.password} <span style={{color: '#EF4444'}}>{t.registerPage.required}</span>
             </label>
             <div className="relative">
               <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5" style={{color: '#9CA3AF'}} />
@@ -216,7 +218,7 @@ function RegisterPage() {
                 required
                 className="w-full pl-12 pr-12 py-4 border text-sm tracking-wide transition focus:outline-none focus:border-gray-900"
                 style={{borderColor: '#D1D5DB', color: '#1F1F1F'}}
-                placeholder="至少6个字符"
+                placeholder={t.registerPage.passwordPlaceholder}
               />
               <button
                 type="button"
@@ -234,7 +236,7 @@ function RegisterPage() {
 
           <div>
             <label className="block text-sm font-normal mb-3 tracking-wide" style={{color: '#1F1F1F'}}>
-              确认密码 <span style={{color: '#EF4444'}}>*</span>
+              {t.registerPage.confirmPassword} <span style={{color: '#EF4444'}}>{t.registerPage.required}</span>
             </label>
             <div className="relative">
               <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5" style={{color: '#9CA3AF'}} />
@@ -245,7 +247,7 @@ function RegisterPage() {
                 required
                 className="w-full pl-12 pr-12 py-4 border text-sm tracking-wide transition focus:outline-none focus:border-gray-900"
                 style={{borderColor: '#D1D5DB', color: '#1F1F1F'}}
-                placeholder="再次输入密码"
+                placeholder={t.registerPage.confirmPasswordPlaceholder}
               />
               <button
                 type="button"
@@ -270,20 +272,20 @@ function RegisterPage() {
               onMouseEnter={(e) => !loading && (e.currentTarget.style.backgroundColor = '#101D29')}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#1C2B3A'}
             >
-              {loading ? '注册中...' : '注册'}
+              {loading ? t.registerPage.registerButtonLoading : t.registerPage.registerButton}
             </button>
           </div>
         </form>
 
         <div className="mt-8 text-center space-y-4">
           <p className="text-sm tracking-wide" style={{color: '#6B7280'}}>
-            已有账户？{' '}
+            {t.registerPage.hasAccount}{' '}
             <Link to="/login" className="transition" style={{color: '#1F1F1F'}} onMouseEnter={(e) => e.currentTarget.style.textDecoration = 'underline'} onMouseLeave={(e) => e.currentTarget.style.textDecoration = 'none'}>
-              立即登录
+              {t.registerPage.signIn}
             </Link>
           </p>
           <Link to="/" className="block text-sm transition tracking-wide" style={{color: '#6B7280'}}>
-            返回首页
+            {t.registerPage.backToHome}
           </Link>
         </div>
         </div>

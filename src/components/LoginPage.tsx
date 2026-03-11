@@ -4,9 +4,11 @@ import { supabase } from '../lib/supabase';
 import { Mail, Lock, Eye, EyeOff } from 'lucide-react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { useLanguage } from '../contexts/LanguageContext';
 
 function LoginPage() {
   const navigate = useNavigate();
+  const { t } = useLanguage();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -30,7 +32,7 @@ function LoginPage() {
         navigate('/');
       }
     } catch (err: any) {
-      setError(err.message || '登录失败，请检查您的邮箱和密码');
+      setError(err.message || t.loginPage.errorDefault);
     } finally {
       setLoading(false);
     }
@@ -46,7 +48,7 @@ function LoginPage() {
             YANORA
           </h1>
           <p className="text-sm tracking-wide" style={{color: '#6B7280'}}>
-            登录您的账户
+            {t.loginPage.title}
           </p>
         </div>
 
@@ -59,7 +61,7 @@ function LoginPage() {
 
           <div>
             <label className="block text-sm font-normal mb-3 tracking-wide" style={{color: '#1F1F1F'}}>
-              邮箱地址
+              {t.loginPage.email}
             </label>
             <div className="relative">
               <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5" style={{color: '#9CA3AF'}} />
@@ -70,14 +72,14 @@ function LoginPage() {
                 required
                 className="w-full pl-12 pr-5 py-4 border text-sm tracking-wide transition focus:outline-none focus:border-gray-900"
                 style={{borderColor: '#D1D5DB', color: '#1F1F1F'}}
-                placeholder="your@email.com"
+                placeholder={t.loginPage.emailPlaceholder}
               />
             </div>
           </div>
 
           <div>
             <label className="block text-sm font-normal mb-3 tracking-wide" style={{color: '#1F1F1F'}}>
-              密码
+              {t.loginPage.password}
             </label>
             <div className="relative">
               <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5" style={{color: '#9CA3AF'}} />
@@ -88,7 +90,7 @@ function LoginPage() {
                 required
                 className="w-full pl-12 pr-12 py-4 border text-sm tracking-wide transition focus:outline-none focus:border-gray-900"
                 style={{borderColor: '#D1D5DB', color: '#1F1F1F'}}
-                placeholder="输入您的密码"
+                placeholder={t.loginPage.passwordPlaceholder}
               />
               <button
                 type="button"
@@ -113,20 +115,20 @@ function LoginPage() {
               onMouseEnter={(e) => !loading && (e.currentTarget.style.backgroundColor = '#101D29')}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#1C2B3A'}
             >
-              {loading ? '登录中...' : '登录'}
+              {loading ? t.loginPage.loginButtonLoading : t.loginPage.loginButton}
             </button>
           </div>
         </form>
 
         <div className="mt-8 text-center space-y-4">
           <p className="text-sm tracking-wide" style={{color: '#6B7280'}}>
-            还没有账户？{' '}
+            {t.loginPage.noAccount}{' '}
             <Link to="/register" className="transition" style={{color: '#1F1F1F'}} onMouseEnter={(e) => e.currentTarget.style.textDecoration = 'underline'} onMouseLeave={(e) => e.currentTarget.style.textDecoration = 'none'}>
-              立即注册
+              {t.loginPage.signUp}
             </Link>
           </p>
           <Link to="/" className="block text-sm transition tracking-wide" style={{color: '#6B7280'}}>
-            返回首页
+            {t.loginPage.backToHome}
           </Link>
         </div>
         </div>
