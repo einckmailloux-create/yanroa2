@@ -501,9 +501,13 @@ function App() {
 
       <section className="py-16 md:py-32 px-12">
         <AnimatedSection animation="fade-up" className="max-w-4xl mx-auto text-center">
-          <div className="text-2xl md:text-4xl font-light mb-4 md:mb-4 leading-relaxed tracking-wide bg-gradient-to-r from-slate-700 via-slate-800 to-slate-900 bg-clip-text text-transparent">
-            <div className="md:inline">{t('hero.title1')}</div>
-            <div className="md:inline md:ml-2">{t('hero.title2')}</div>
+          <div className="text-2xl md:text-4xl font-light mb-4 md:mb-4 leading-relaxed tracking-wide">
+            <div className="bg-gradient-to-r from-slate-700 via-slate-800 to-slate-900 bg-clip-text text-transparent">
+              <span className="md:inline">{t('hero.title1')}</span>
+            </div>
+            <div className="bg-gradient-to-r from-slate-700 via-slate-800 to-slate-900 bg-clip-text text-transparent">
+              <span className="md:inline md:ml-2">{t('hero.title2')}</span>
+            </div>
           </div>
           <button
             onClick={() => navigate('/booking')}
