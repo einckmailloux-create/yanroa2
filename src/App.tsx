@@ -523,7 +523,7 @@ function App() {
       <section className="hidden md:block py-12 px-12">
         <AnimatedSection animation="scale-in" className="w-4/5 mx-auto">
           <div className="p-8 flex flex-row gap-8 rounded-3xl border-4" style={{minHeight: '320px', borderColor: '#B9CBDC'}}>
-            <div className="w-5/6 grid grid-cols-2 gap-6">
+            <div className="w-3/5 grid grid-cols-2 gap-6">
               <div className="aspect-[3/4] rounded-2xl overflow-hidden" >
                 <ImageCompareSlider
                   beforeImage="/24a1e5e820d6d721e7aa3970ae648b43.jpg "
@@ -544,15 +544,15 @@ function App() {
               </div>
             </div>
 
-            <div className="w-1/6 space-y-12">
-              <div>
-                <h3 className="text-xl font-normal" style={{color: '#1F1F1F'}}>{t('nav.facialContour')}</h3>
+            <div className="w-2/5 flex flex-col justify-center space-y-10 pl-6">
+              <div className="border-l-4 pl-6" style={{borderColor: '#B9CBDC'}}>
+                <h3 className="text-lg font-light leading-relaxed tracking-wide" style={{color: '#1F1F1F'}}>{t('nav.facialContour')}</h3>
               </div>
-              <div>
-                <h3 className="text-xl font-normal" style={{color: '#1F1F1F'}}>{t('nav.bodySculpting')}</h3>
+              <div className="border-l-4 pl-6" style={{borderColor: '#B9CBDC'}}>
+                <h3 className="text-lg font-light leading-relaxed tracking-wide" style={{color: '#1F1F1F'}}>{t('nav.bodySculpting')}</h3>
               </div>
-              <div>
-                <h3 className="text-xl font-normal" style={{color: '#1F1F1F'}}>{t('nav.facialRejuvenation')}</h3>
+              <div className="border-l-4 pl-6" style={{borderColor: '#B9CBDC'}}>
+                <h3 className="text-lg font-light leading-relaxed tracking-wide" style={{color: '#1F1F1F'}}>{t('nav.facialRejuvenation')}</h3>
               </div>
             </div>
           </div>
