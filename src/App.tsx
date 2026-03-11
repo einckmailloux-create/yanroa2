@@ -545,14 +545,14 @@ function App() {
             </div>
 
             <div className="w-1/6 space-y-12">
-              <div className="group cursor-pointer">
-                <h3 className="text-xl font-normal transition" style={{color: '#1F1F1F'}}>{t('nav.facialContour')}</h3>
+              <div>
+                <h3 className="text-xl font-normal" style={{color: '#1F1F1F'}}>{t('nav.facialContour')}</h3>
               </div>
-              <div className="group cursor-pointer">
-                <h3 className="text-xl font-normal transition" style={{color: '#1F1F1F'}}>{t('nav.bodySculpting')}</h3>
+              <div>
+                <h3 className="text-xl font-normal" style={{color: '#1F1F1F'}}>{t('nav.bodySculpting')}</h3>
               </div>
-              <div className="group cursor-pointer">
-                <h3 className="text-xl font-normal transition" style={{color: '#1F1F1F'}}>{t('nav.facialRejuvenation')}</h3>
+              <div>
+                <h3 className="text-xl font-normal" style={{color: '#1F1F1F'}}>{t('nav.facialRejuvenation')}</h3>
               </div>
             </div>
           </div>
@@ -584,82 +584,33 @@ function App() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
+            <div className="flex flex-col gap-3">
               <div
-                className="cursor-pointer px-4 py-3 rounded-lg transition-all duration-300 active:scale-95"
+                className="px-4 py-3 rounded-lg"
                 style={{
                   backgroundColor: '#F5F8FA',
                   border: '1.5px solid #B9CBDC'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'scale(1.05)';
-                  e.currentTarget.style.borderColor = '#1C2B3A';
-                  e.currentTarget.style.boxShadow = '0 4px 12px rgba(28, 43, 58, 0.15)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'scale(1)';
-                  e.currentTarget.style.borderColor = '#B9CBDC';
-                  e.currentTarget.style.boxShadow = 'none';
                 }}
               >
                 <h3 className="text-sm font-normal text-center" style={{color: '#1F1F1F'}}>{t('nav.facialContour')}</h3>
               </div>
               <div
-                className="cursor-pointer px-4 py-3 rounded-lg transition-all duration-300 active:scale-95"
+                className="px-4 py-3 rounded-lg"
                 style={{
                   backgroundColor: '#F5F8FA',
                   border: '1.5px solid #B9CBDC'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'scale(1.05)';
-                  e.currentTarget.style.borderColor = '#1C2B3A';
-                  e.currentTarget.style.boxShadow = '0 4px 12px rgba(28, 43, 58, 0.15)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'scale(1)';
-                  e.currentTarget.style.borderColor = '#B9CBDC';
-                  e.currentTarget.style.boxShadow = 'none';
                 }}
               >
                 <h3 className="text-sm font-normal text-center" style={{color: '#1F1F1F'}}>{t('nav.bodySculpting')}</h3>
               </div>
               <div
-                className="cursor-pointer px-4 py-3 rounded-lg transition-all duration-300 active:scale-95"
+                className="px-4 py-3 rounded-lg"
                 style={{
                   backgroundColor: '#F5F8FA',
                   border: '1.5px solid #B9CBDC'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'scale(1.05)';
-                  e.currentTarget.style.borderColor = '#1C2B3A';
-                  e.currentTarget.style.boxShadow = '0 4px 12px rgba(28, 43, 58, 0.15)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'scale(1)';
-                  e.currentTarget.style.borderColor = '#B9CBDC';
-                  e.currentTarget.style.boxShadow = 'none';
                 }}
               >
                 <h3 className="text-sm font-normal text-center" style={{color: '#1F1F1F'}}>{t('nav.facialRejuvenation')}</h3>
-              </div>
-              <div
-                className="cursor-pointer px-4 py-3 rounded-lg transition-all duration-300 active:scale-95"
-                style={{
-                  backgroundColor: '#F5F8FA',
-                  border: '1.5px solid #B9CBDC'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'scale(1.05)';
-                  e.currentTarget.style.borderColor = '#1C2B3A';
-                  e.currentTarget.style.boxShadow = '0 4px 12px rgba(28, 43, 58, 0.15)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'scale(1)';
-                  e.currentTarget.style.borderColor = '#B9CBDC';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
-              >
-                <h3 className="text-sm font-normal text-center" style={{color: '#1F1F1F'}}>{t('nav.hairTransplant')}</h3>
               </div>
             </div>
           </div>
