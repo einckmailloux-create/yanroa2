@@ -648,7 +648,7 @@ const enTranslations = {
   },
   facialFold: {
     title: 'Facial Fold Degree',
-    subtitle: 'Facial fold degree is a key indicator of facial youthfulness. Comparison allows you to visually perceive the traces left by time on the face.',
+    subtitle: 'If the face is a canvas, then facial fold degree is the depth that brings it to life.',
     lowFold: 'Low Fold',
     highFold: 'High Fold',
     youngState: 'Youthful Facial State',
