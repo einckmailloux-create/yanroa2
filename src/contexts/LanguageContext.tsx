@@ -73,6 +73,8 @@ const zhTranslations = {
   hero: {
     title1: '只有自然独一无二的，',
     title2: '你才是这个世界上最独特的符号',
+    title2Mobile: '你才是这个世界上',
+    title3Mobile: '最独特的符号',
     cta: '现在开始探索',
   },
   services: {
@@ -563,6 +565,8 @@ const enTranslations = {
   hero: {
     title1: 'Only what is naturally unique',
     title2: 'Makes you the most distinctive symbol in the world',
+    title2Mobile: 'Makes you the most distinctive',
+    title3Mobile: 'symbol in the world',
     cta: 'Start Exploring Now',
   },
   services: {
